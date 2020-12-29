@@ -3,28 +3,28 @@
 
 <%= link_to "Dodaj oglas", new_ad_path, class: "button is-link" %>
 
-<div class="card" style="margin-bottom:40px">
-    <div class="card-content">
-  <%= form_with url: ads_path, method: :get do |f| %>
-    <div class="field is-grouped">
-      <div class="control">
-        <div class="select">
-          <%= select_tag :kind, options_for_select(%w[Smještaj Prijevoz], params[:kind]), prompt: "-- Svi tipovi --" %>
+<div class="card" style="margin-bottom:41px">
+  <div class="card-content">
+    <%= form_with url: ads_path, method: :get do |f| %>
+      <div class="field is-grouped">
+        <div class="control">
+          <div class="select">
+            <%= select_tag :kind, options_for_select(%w[Smještaj Prijevoz], params[:kind]), prompt: "-- Svi tipovi --" %>
+          </div>
+        </div>
+
+        <div class="control">
+          <div class="select">
+            <%= select_tag :city, options_for_select(Ad.order(:city).pluck("distinct(city)"), params[:city]), prompt: "-- Svi gradovi --" %>
+          </div>
+        </div>
+
+        <div class="control">
+          <%= f.submit "Filtriraj", class: "button is-primary" %>
         </div>
       </div>
-
-      <div class="control">
-        <div class="select">
-          <%= select_tag :city, options_for_select(Ad.order(:city).pluck("distinct(city)"), params[:city]), prompt: "-- Svi gradovi --" %>
-        </div>
-      </div>
-
-      <div class="control">
-        <%= f.submit "Filtriraj", class: "button is-primary" %>
-      </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 </div>
 
 <% @ads.each do |ad| %>
@@ -33,26 +33,35 @@
       <div class="media">
         <div class="media-content">
           <p class="title is-4"><%= ad.kind %></p>
-          <p class="subtitle is-6">
-            <span class="tag is-info"><%= ad.city %></span>
-            <% if ad.zip.present? %>
-              <span class="tag is-info"><%= ad.zip %></span>
-            <% end %>
-            <span class="tag is-info"><%= ad.phone %></span>
-          </p>
         </div>
       </div>
 
       <div class="content">
+        <div class="columns">
+          <div class="column is-narrow">
+            <div class="tags has-addons">
+              <span class="tag">Grad</span>
+              <span class="tag is-info"><%= city_and_zip ad %></span>
+            </div>
+          </div>
+          <div class="column is-narrow">
+            <div class="tags has-addons">
+              <span class="tag">Telefon</span>
+              <span class="tag is-info"><%= ad.phone %></span>
+            </div>
+          </div>
+        </div>
+
         <%= simple_format ad.description %>
+
+        <hr>
+
+        <div class="columns">
+          <div class="column is-hidden-mobile">Grad: <b><%= city_and_zip ad %></b></div>
+          <div class="column is-hidden-mobile">Telefon: <b><%= ad.phone %></b></div>
+          <div class="column">Objavljeno: <b><%= ad.created_at.strftime("%d.%m.%Y. %H:%M") %></b></div>
+        </div>
       </div>
     </div>
-    <footer class="card-footer" style="padding:10px 20px">
-      <div class="card-footer-item">Grad:&nbsp;<b><%= city_and_zip ad %></b></div>
-      <div class="card-footer-item">Telefon:&nbsp;<b><%= ad.phone %></b></div>
-      <div class="card-footer-item">
-        Objavljeno:&nbsp;<time datetime="<%= ad.created_at %>"><b><%= ad.created_at.strftime("%d.%m.%Y. %H:%M") %></b></time>
-      </div>
-    </footer>
   </div>
 <% end %>
