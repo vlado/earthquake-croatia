@@ -67,3 +67,5 @@
     </div>
   </div>
 <% end %>
+
+<%= will_paginate @ads, renderer: BulmaPagination::Rails, class: 'is-centered', previous_label: "&larr;", next_label: "&rarr;" %>
