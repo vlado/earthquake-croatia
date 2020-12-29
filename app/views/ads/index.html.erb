@@ -46,6 +46,23 @@
   </div>
 </div>
 
+<% if filtered? %>
+  <div style="margin-bottom:40px">
+    <% if params[:city].present? %>
+      <span class="tag">
+        <%= params[:city] %>
+        <%= link_to "", params.permit(:kind), class: "delete is-small"  %>
+      </span>
+    <% end %>
+    <% if params[:kind].present? %>
+      <span class="tag">
+        <%= params[:kind] %>
+        <%= link_to "", params.permit(:city), class: "delete is-small"  %>
+      </span>
+    <% end %>
+  </div>
+<% end %>
+
 <% @ads.each do |ad| %>
   <div class="card" style="margin-bottom:30px">
     <div class="card-content">

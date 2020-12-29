@@ -13,7 +13,7 @@ Turbolinks.start()
 // ActiveStorage.start()
 
 
-$(function() {
+document.addEventListener("turbolinks:load", function() {
   let $filterShowLink = $('a#filter-show');
   let $filterHideLink = $('a#filter-hide');
   let $filterCard = $('#filter-card');
