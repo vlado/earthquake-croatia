@@ -5,9 +5,29 @@
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
-import * as ActiveStorage from "@rails/activestorage"
-import "channels"
+// import * as ActiveStorage from "@rails/activestorage"
+// import "channels"
 
 Rails.start()
 Turbolinks.start()
-ActiveStorage.start()
+// ActiveStorage.start()
+
+
+$(function() {
+  let $filterShowLink = $('a#filter-show');
+  let $filterHideLink = $('a#filter-hide');
+  let $filterCard = $('#filter-card');
+
+  $filterCard.hide();
+
+  $filterShowLink.on("click", function(e) {
+    e.preventDefault();
+    $filterCard.show();
+    $filterShowLink.hide()
+  });
+  $filterHideLink.on("click", function(e) {
+    e.preventDefault();
+    $filterCard.hide();
+    $filterShowLink.show()
+  });
+})

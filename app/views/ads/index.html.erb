@@ -1,9 +1,15 @@
+<%= javascript_tag do %>
+<% end %>
+
 <h1 class="title">Pomozimo žrtvama potresa</h1>
 <h2 class="subtitle">Petrinja, Sisak i okolna mjesta</h2>
 
-<%= link_to "Dodaj oglas", new_ad_path, class: "button is-link" %>
+<div style="margin-bottom:40px">
+  <%= link_to "Dodaj oglas", new_ad_path, class: "button is-link" %>
+  <%= link_to "Filtriraj", "#", id: "filter-show", class: "button" %>
+</div>
 
-<div class="card" style="margin:40px 0">
+<div id="filter-card" class="card" style="margin-bottom:40px">
   <div class="card-content">
     <%= form_with url: ads_path, method: :get do |f| %>
       <div class="columns">
@@ -31,6 +37,7 @@
           <div class="field">
             <div class="control">
               <%= f.submit "Filtriraj", class: "button is-primary" %>
+              <%= link_to "Odustani", "#", id: "filter-hide", class: "button" %>
             </div>
           </div>
         </div>
