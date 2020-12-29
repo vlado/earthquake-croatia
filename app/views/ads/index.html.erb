@@ -1,0 +1,39 @@
+<style>
+div.ad {
+  margin:15px 10px;
+  padding:15px;
+  border:1px solid #ccc;
+  line-height:1.5em;
+  background: #eee;
+}
+</style>
+
+<h1>Oglasi</h1>
+
+<p><%= link_to "Dodaj oglas", new_ad_path %></p>
+
+<div>
+  <%= form_with url: ads_path, method: :get do |f| %>
+    <%= label_tag :kind, "Tip Oglasa:" %>
+    <%= select_tag :kind, options_for_select(%w[Smještaj Prijevoz], params[:kind]), prompt: "-- Svi tipovi --" %>
+
+    <%= label_tag :city, "Grad:" %>
+    <%= select_tag :city, options_for_select(Ad.pluck("distinct(city)"), params[:city]), prompt: "-- Svi gradovi --" %>
+
+    <%= f.submit "Filtriraj" %>
+  <% end %>
+</div>
+
+<% @ads.each do |ad| %>
+  <div class="ad">
+    Tip oglasa: <b><%= ad.kind %></b><br>
+    <hr>
+    Grad: <b><%= ad.city %></b><br>
+    Poštanski broj: <b><%= ad.zip %></b><br>
+    Telefon: <b><%= ad.phone %></b>
+
+    <hr>
+
+    <%= simple_format ad.description %>
+  </div>
+<% end %>

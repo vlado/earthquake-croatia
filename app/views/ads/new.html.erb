@@ -1,0 +1,47 @@
+<style>
+form div.field {
+  padding: 10px;
+}
+p.error {
+  color:white;
+  background:red;
+  padding:20px;
+}
+</style>
+
+<h1>Novi oglas</h1>
+
+<% if @ad.errors.any? %>
+  <p class="error">
+    <%= @ad.errors.full_messages.to_sentence %>
+  </p>
+<% end %>
+
+<%= form_with model: @ad do |f| %>
+  <div class="field">
+    <%= f.label :kind, "Tip oglasa" %>
+    <%= f.select :kind, %w[Smještaj Prijevoz] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :zip, "Poštanski broj" %><br>
+    <%= f.text_field :zip %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city, "Grad" %><br>
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone, "Kontakt telefon" %><br>
+    <%= f.text_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description, "Opis" %><br>
+    <%= f.text_area :description, rows: 10, style: "width:100%" %>
+  </div>
+
+  <%= f.submit "Spremi" %>
+<% end %>
