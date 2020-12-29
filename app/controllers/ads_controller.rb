@@ -1,6 +1,6 @@
 class AdsController < ApplicationController
   def index
-    @ads = Ad.order(created_at: :desc)
+    @ads = Ad.order(created_at: :desc).limit(100)
     @ads = @ads.where(kind: params[:kind]) if params[:kind].present?
     @ads = @ads.where(city: params[:city]) if params[:city].present?
   end
