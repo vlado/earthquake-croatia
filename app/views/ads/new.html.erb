@@ -1,47 +1,55 @@
-<style>
-form div.field {
-  padding: 10px;
-}
-p.error {
-  color:white;
-  background:red;
-  padding:20px;
-}
-</style>
-
-<h1>Novi oglas</h1>
+<h1 class="title">Pomozimo žrtvama potresa</h1>
+<h2 class="subtitle">Novi oglas</h2>
 
 <% if @ad.errors.any? %>
-  <p class="error">
-    <%= @ad.errors.full_messages.to_sentence %>
-  </p>
+  <article class="message is-danger">
+    <div class="message-header">
+      <p>Došlo je do greške!</p>
+    </div>
+    <div class="message-body">
+      <%= @ad.errors.full_messages.to_sentence %>
+    </div>
+  </article>
 <% end %>
 
 <%= form_with model: @ad do |f| %>
   <div class="field">
-    <%= f.label :kind, "Tip oglasa" %>
-    <%= f.select :kind, %w[Smještaj Prijevoz] %>
+    <%= f.label :kind, class: "label" %>
+    <div class="control">
+      <div class="select">
+        <%= f.select :kind, %w[Smještaj Prijevoz] %>
+      </div>
+    </div>
   </div>
 
   <div class="field">
-    <%= f.label :zip, "Poštanski broj" %><br>
-    <%= f.text_field :zip %>
+    <%= f.label :zip, class: "label" %>
+    <div class="control">
+      <%= f.text_field :zip, class: "input" %>
+    </div>
   </div>
 
   <div class="field">
-    <%= f.label :city, "Grad" %><br>
-    <%= f.text_field :city %>
+    <%= f.label :city, class: "label" %>
+    <div class="control">
+      <%= f.text_field :city, class: "input" %>
+    </div>
   </div>
 
   <div class="field">
-    <%= f.label :phone, "Kontakt telefon" %><br>
-    <%= f.text_field :phone %>
+    <%= f.label :phone, "Kontakt telefon", class: "label" %>
+    <div class="control">
+      <%= f.text_field :phone, class: "input" %>
+    </div>
   </div>
 
   <div class="field">
-    <%= f.label :description, "Opis" %><br>
-    <%= f.text_area :description, rows: 10, style: "width:100%" %>
+    <%= f.label :description, class: "label" %>
+    <div class="control">
+      <%= f.text_area :description, class: "input", style: "min-height:8em" %>
+    </div>
   </div>
 
-  <%= f.submit "Spremi" %>
+  <%= f.submit "Spremi", class: "button is-primary" %>
+  <%= link_to "Nazad na naslovnicu", ads_path, class: "button" %>
 <% end %>
