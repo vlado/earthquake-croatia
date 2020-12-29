@@ -37,19 +37,21 @@
       </div>
 
       <div class="content">
-        <div class="columns">
+        <div class="columns is-mobile">
           <div class="column is-narrow">
             <div class="tags has-addons">
               <span class="tag">Grad</span>
-              <span class="tag is-info"><%= city_and_zip ad %></span>
+              <span class="tag is-info"><%= ad.city %></span>
             </div>
           </div>
-          <div class="column is-narrow">
-            <div class="tags has-addons">
-              <span class="tag">Telefon</span>
-              <span class="tag is-info"><%= ad.phone %></span>
+          <% if ad.zip.present? %>
+            <div class="column is-narrow">
+              <div class="tags has-addons">
+                <span class="tag">Poštanski broj</span>
+                <span class="tag is-info"><%= ad.zip %></span>
+              </div>
             </div>
-          </div>
+          <% end %>
         </div>
 
         <%= simple_format ad.description %>
@@ -58,7 +60,7 @@
 
         <div class="columns">
           <div class="column is-hidden-mobile">Grad: <b><%= city_and_zip ad %></b></div>
-          <div class="column is-hidden-mobile">Telefon: <b><%= ad.phone %></b></div>
+          <div class="column">Telefon: <b><%= tel_to ad.phone %></b></div>
           <div class="column">Objavljeno: <b><%= ad.created_at.strftime("%d.%m.%Y. %H:%M") %></b></div>
         </div>
       </div>
