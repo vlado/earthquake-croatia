@@ -1,24 +1,9 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+# Potres-app
 
 * Ruby version
+2.7.1
 
-* System dependencies
+## How to contribute
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+If you want to contribute, please check out our issues tab, see if anything is approved and comment on that issue so we know someone is working on it.
+If you have a recommendation - please raise a new issue, tag it accordingly with enhancment and bug labels.
