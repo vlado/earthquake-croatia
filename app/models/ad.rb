@@ -4,4 +4,10 @@ class Ad < ApplicationRecord
   validates :kind, presence: true
   validates :phone, presence: true
   validates :consent, presence: true
+
+  has_many :comments
+
+  def comment_count
+    comments.count
+  end
 end

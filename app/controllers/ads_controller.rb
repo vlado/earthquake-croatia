@@ -1,4 +1,9 @@
 class AdsController < ApplicationController
+
+  def show
+    @ad = Ad.find(params[:id])
+  end
+
   def index
     @ads = Ad.order(created_at: :desc).paginate(page: params[:page], per_page: 100)
     @ads = @ads.where(kind: params[:kind]) if params[:kind].present?
@@ -16,10 +21,6 @@ class AdsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def show
-    render :ad
   end
 
   private

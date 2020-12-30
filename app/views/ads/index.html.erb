@@ -101,6 +101,10 @@
         </div>
       </div>
     </div>
+    <footer class="card-footer">
+      <div class="card-footer-item">Komentari: <%= ad.comment_count %></div>
+      <%= link_to "Komentiraj", ad_path(ad), class: 'card-footer-item' %>
+    </footer>
   </div>
 <% end %>
 

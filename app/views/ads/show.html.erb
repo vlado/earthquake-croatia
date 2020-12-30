@@ -5,7 +5,7 @@
   <div class="card-content">
     <div class="media">
       <div class="media-content">
-        <p class="title is-4">KIND</p>
+        <p class="title is-4"><%= @ad.kind %></p>
       </div>
     </div>
 
@@ -14,25 +14,25 @@
         <div class="column is-narrow">
           <div class="tags has-addons">
             <span class="tag">Grad</span>
-            <span class="tag is-info">GRAD</span>
+            <span class="tag is-info"><%= @ad.city %></span>
           </div>
         </div>
         <div class="column is-narrow">
           <div class="tags has-addons">
             <span class="tag">Poštanski broj</span>
-            <span class="tag is-info">ZIP</span>
+            <span class="tag is-info"><%= @ad.zip %></span>
           </div>
         </div>
       </div>
 
-      OPIS
+      <%= @ad.description %>
 
       <hr>
 
       <div class="columns">
-        <div class="column is-hidden-mobile">Grad: <b>ZIP I AD</b></div>
-        <div class="column">Telefon: <b>PHONE</b></div>
-        <div class="column">Objavljeno: <b>OBJAVLJENO</b></div>
+        <div class="column is-hidden-mobile">Grad: <b><%= @ad.zip %>, <%= @ad.city %></b></div>
+        <div class="column">Telefon: <b><%= @ad.phone %></b></div>
+        <div class="column">Objavljeno: <b><%= @ad.created_at.strftime("%H:%M %d.%m.%Y.") %></b></div>
       </div>
     </div>
   </div>
@@ -73,9 +73,6 @@ NOVI KOMENTAR
   </div>
 </article>
 
-<!-- 
-KOMENTARI
-!-->
 <hr>
 
 <h2><b>Komentari</b></h2>
