@@ -74,6 +74,8 @@
     </div>
   </div>
 
-  <%= f.submit "Spremi", class: "button is-primary" %>
-  <%= link_to "Nazad na naslovnicu", ads_path, class: "button" %>
+  <div class="is-flex is-align-items-center">
+    <%= f.submit "Spremi", class: "button is-primary" %>
+    <%= link_to "Odustani", ads_path, class: "has-text-grey ml-4" %>
+  </div>
 <% end %>
