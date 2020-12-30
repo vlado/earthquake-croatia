@@ -87,6 +87,14 @@
               </div>
             </div>
           <% end %>
+          <% if ad.address.present? %>
+            <div class="column is-narrow">
+              <div class="tags has-addons">
+                <span class="tag">Adresa</span>
+                <span class="tag is-info"><%= ad.address %></span>
+              </div>
+            </div>
+          <% end %>
         </div>
 
         <%= simple_format ad.description %>
