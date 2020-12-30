@@ -1,4 +1,6 @@
 class AdsController < ApplicationController
+  invisible_captcha only: [:create], honeypot: :title
+
   def index
     @ads = Ad.order(created_at: :desc).paginate(page: params[:page], per_page: 100)
     @ads = @ads.where(kind: params[:kind]) if params[:kind].present?
