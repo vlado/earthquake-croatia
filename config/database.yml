@@ -24,9 +24,6 @@ default: &default
 development:
   <<: *default
   database: potres_development
-  host: <%= ENV.fetch("POTRES_DATABASE_HOST") { "localhost" } %>
-  username: <%= ENV.fetch("POTRES_DATABASE_USERNAME") { "" } %>
-  password: <%= ENV.fetch("POTRES_DATABASE_PASSWORD") { "" } %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

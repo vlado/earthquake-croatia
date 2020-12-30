@@ -12,9 +12,7 @@ services:
     volumes:
       - .:/potres-app
     environment:
-      POTRES_DATABASE_HOST: db
-      POTRES_DATABASE_USERNAME: postgres
-      POTRES_DATABASE_PASSWORD: password
+      DATABASE_URL: "postgres://postgres:password@db/potres_development"
     ports:
       - "3000:3000"
     depends_on:
