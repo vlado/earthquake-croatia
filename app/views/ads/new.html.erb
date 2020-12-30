@@ -7,7 +7,10 @@
       <p>Došlo je do greške!</p>
     </div>
     <div class="message-body">
-      <%= @ad.errors.full_messages.to_sentence %>
+      <% @ad.errors.full_messages.each do |message|  %>
+        <%= message %>
+        <br/>
+      <% end %>
     </div>
   </article>
 <% end %>
@@ -37,9 +40,23 @@
   </div>
 
   <div class="field">
+    <%= f.label :address, class: "label" %>
+    <div class="control">
+      <%= f.text_field :address, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
     <%= f.label :phone, "Kontakt telefon", class: "label" %>
     <div class="control">
       <%= f.text_field :phone, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, class: "label" %>
+    <div class="control">
+      <%= f.email_field :email, class: "input" %>
     </div>
   </div>
 
@@ -57,6 +74,8 @@
     </div>
   </div>
 
-  <%= f.submit "Spremi", class: "button is-primary" %>
-  <%= link_to "Nazad na naslovnicu", ads_path, class: "button" %>
+  <div class="is-flex is-align-items-center">
+    <%= f.submit "Spremi", class: "button is-primary" %>
+    <%= link_to "Odustani", ads_path, class: "has-text-grey ml-4" %>
+  </div>
 <% end %>
