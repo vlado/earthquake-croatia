@@ -15,6 +15,8 @@
 #  updated_at  :datetime         not null
 #
 class Ad < ApplicationRecord
+  KINDS = %w[Smještaj Prijevoz Prijava\ štete Usluge\ popravke]
+
   validates :city, presence: true
   validates :description, presence: true
   validates :kind, presence: true
