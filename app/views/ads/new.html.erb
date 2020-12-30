@@ -20,7 +20,7 @@
     <%= f.label :kind, class: "label" %>
     <div class="control">
       <div class="select">
-        <%= f.select :kind, %w[Smještaj Prijevoz] %>
+        <%= f.select :kind, Ad::KINDS %>
       </div>
     </div>
   </div>

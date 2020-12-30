@@ -17,7 +17,7 @@
           <div class="field">
             <div class="control">
               <div class="select">
-                <%= select_tag :kind, options_for_select(%w[Smještaj Prijevoz], params[:kind]), prompt: "-- Svi tipovi --" %>
+                <%= select_tag :kind, options_for_select(Ad::KINDS, params[:kind]), prompt: "-- Svi tipovi --" %>
               </div>
             </div>
           </div>
@@ -66,14 +66,13 @@
 <% @ads.each do |ad| %>
   <div class="card" style="margin-bottom:30px">
     <div class="card-content">
-      <div class="media">
-        <div class="media-content">
-          <p class="title is-4"><%= ad.kind %></p>
-        </div>
-      </div>
-
       <div class="content">
         <div class="columns is-mobile">
+          <div class="column is-narrow">
+            <div class="tags">
+              <%= kind_tag ad %>
+            </div>
+          </div>
           <div class="column is-narrow">
             <div class="tags has-addons">
               <span class="tag">Grad</span>
