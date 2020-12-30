@@ -46,4 +46,8 @@ class Ad < ApplicationRecord
   def medical_help?
     kind == 'Medicinska pomoć'
   end
+
+  def to_param
+    [id, kind.parameterize, city.parameterize].join('-')
+  end
 end

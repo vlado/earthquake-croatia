@@ -32,6 +32,7 @@ document.addEventListener("turbolinks:load", function(event) {
     $filterCard.show();
     $filterShowLink.hide()
   });
+
   $filterHideLink.on("click", function(e) {
     e.preventDefault();
     $filterCard.hide();

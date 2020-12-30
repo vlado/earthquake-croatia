@@ -9,6 +9,10 @@ class AdsController < ApplicationController
     @ad = Ad.new
   end
 
+  def show
+    @ad = Ad.find(params[:id])
+  end
+
   def create
     @ad = Ad.new(ad_params)
     if @ad.save
