@@ -18,6 +18,10 @@ class AdsController < ApplicationController
     end
   end
 
+  def show
+    render :ad
+  end
+
   private
 
   def ad_params
