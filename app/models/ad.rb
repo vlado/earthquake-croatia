@@ -15,7 +15,7 @@
 #  updated_at  :datetime         not null
 #
 class Ad < ApplicationRecord
-  KINDS = %w[Smještaj Prijevoz Prijava\ štete Usluge\ popravke]
+  KINDS = ['Smještaj', 'Prijevoz', 'Usluga popravka', 'Medicinska pomoć'].freeze
 
   validates :city, presence: true
   validates :description, presence: true
@@ -29,5 +29,21 @@ class Ad < ApplicationRecord
     if phone.blank? && email.blank?
       errors.add(:base, "Email ili telefon su obavezni")
     end
+  end
+
+  def accomodation?
+    kind == 'Smještaj'
+  end
+
+  def transportation?
+    kind == 'Prijevoz'
+  end
+
+  def repair_service?
+    kind == 'Usluga popravka'
+  end
+
+  def medical_help?
+    kind == 'Medicinska pomoć'
   end
 end
