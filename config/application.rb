@@ -19,5 +19,6 @@ module Potres
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
     config.i18n.default_locale = :hr
+    config.time_zone = 'Zagreb'
   end
 end

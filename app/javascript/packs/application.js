@@ -13,7 +13,14 @@ Turbolinks.start()
 // ActiveStorage.start()
 
 
-document.addEventListener("turbolinks:load", function() {
+document.addEventListener("turbolinks:load", function(event) {
+
+  if (typeof gtag === 'function') {
+    gtag('config', '<%= Rails.application.credentials.dig(:google_analytics) %>', {
+      'page_location': event.data.url
+    })
+  }
+
   let $filterShowLink = $('a#filter-show');
   let $filterHideLink = $('a#filter-hide');
   let $filterCard = $('#filter-card');
