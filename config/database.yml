@@ -24,6 +24,9 @@ default: &default
 development:
   <<: *default
   database: potres_development
+  host: <%= ENV.fetch("POTRES_DATABASE_HOST") { "localhost" } %>
+  username: <%= ENV.fetch("POTRES_DATABASE_USERNAME") { "" } %>
+  password: <%= ENV.fetch("POTRES_DATABASE_PASSWORD") { "" } %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -51,6 +54,12 @@ development:
   #   log, notice, warning, error, fatal, and panic
   # Defaults to warning.
   #min_messages: notice
+
+development-docker:
+  <<: *default
+  host: POTRES_DATABASE_PASSWORD
+  username: postgres
+  password: password
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
