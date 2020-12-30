@@ -13,6 +13,22 @@ We need the UI to be responsive since this app is heavily used on mobile phones.
 
 ## Environment setup
 
+### Docker Compose
+
+```bash
+# Generate Docker bundle
+docker-compose build
+
+# Start Docker containers
+docker-compose up
+
+# In another console run
+docker-compose run web rake db:create
+docker-compose run web rake db:migrate
+docker-compose run web rake webpacker:install
+
+```
+
 ### Install Ruby
 
 ```bash
