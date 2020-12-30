@@ -104,9 +104,9 @@ hr:
         many: "%{count} sekundi"
         other: "%{count} sekundi"
       x_minutes:
-        one: "%{count} minuta"
+        one: "%{count} minute"
         few: "%{count} minute"
-        many: "%{count} minuta"
+        many: "%{count} minute"
         other: "%{count} minuta"
       x_days:
         one: "%{count} dan"

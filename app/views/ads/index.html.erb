@@ -95,9 +95,8 @@
         <hr>
 
         <div class="columns">
-          <div class="column is-hidden-mobile">Grad: <b><%= city_and_zip ad %></b></div>
           <div class="column">Telefon: <b><%= tel_to ad.phone %></b></div>
-          <div class="column">Objavljeno: <b><%= ad.created_at.strftime("%d.%m.%Y. %H:%M") %></b></div>
+          <div class="column">Objavljeno: <b>prije <%= time_ago_in_words ad.created_at %></b></div>
         </div>
       </div>
     </div>
