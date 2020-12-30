@@ -50,4 +50,8 @@ class Ad < ApplicationRecord
   def to_param
     [id, kind.parameterize, city.parameterize].join('-')
   end
+
+  def maps_query
+    [address.gsub(' ', '+'),zip, city].join(',+')
+  end
 end

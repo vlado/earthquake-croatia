@@ -21,7 +21,11 @@ module AdsHelper
                 else
                   'is-white'
                 end
-                       
+
     tag.span(ad.kind, class: "tag #{color_class}")
+  end
+
+  def maps_url(location)
+    "https://google.com/maps/place/#{location}"
   end
 end
