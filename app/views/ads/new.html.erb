@@ -16,6 +16,8 @@
 <% end %>
 
 <%= form_with model: @ad do |f| %>
+  <%= f.invisible_captcha :title %>
+
   <div class="field">
     <%= f.label :kind, class: "label" %>
     <div class="control">
