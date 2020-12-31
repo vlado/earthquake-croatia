@@ -6,6 +6,8 @@
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import ClipboardJS from "clipboard"
+import toastr from 'toastr'
+
 // import * as ActiveStorage from "@rails/activestorage"
 // import "channels"
 
@@ -27,7 +29,9 @@ document.addEventListener("turbolinks:load", function(event) {
 
   var clipboard = new ClipboardJS('button.copy-clipboard');
   clipboard.on('success', function(e) {
-    alert('Poveznica kopirana')
+    toastr.success("Poveznica kopirana", '', {
+      closeButton: false, progressBar: false, timeOut: 2000, positionClass: "toast-top-center"
+    });
   });
 
   $filterCard.hide();
