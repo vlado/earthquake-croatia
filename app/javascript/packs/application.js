@@ -12,12 +12,4 @@ Rails.start();
 Turbolinks.start();
 // ActiveStorage.start()
 
-document.addEventListener("turbolinks:load", function(event) {
-  if (typeof gtag === "function") {
-    gtag("config", "<%= Rails.application.credentials.dig(:google_analytics) %>", { // eslint-disable-line no-undef
-      "page_location": event.data.url
-    });
-  }
-});
-
 import "controllers";
