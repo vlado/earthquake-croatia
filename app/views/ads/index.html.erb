@@ -62,7 +62,7 @@
 
 <%= render @ads %>
 
-<%= will_paginate @ads, renderer: BulmaPagination::Rails, class: 'is-centered', previous_label: "&larr;", next_label: "&rarr;" %>
+<%= will_paginate @ads, renderer: BulmaPagination::Rails, class: 'is-centered', previous_label: "&larr;", next_label: "&rarr;", inner_window: 1, outer_window: 0 %>
 
 <div class="content">
   <h3 class="title is-3">Ostale stranice sa popisima ponude smještaja i prijevoza:</h3>
