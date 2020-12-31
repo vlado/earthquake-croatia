@@ -15,26 +15,13 @@ namespace :ads do
       ad.save!(validate: false)
     end
 
-    Ad.where(city: 'Bijelovar').update_all(city: 'Bjelovar')
-    Ad.where(city: 'Dakovo').or(Ad.where(city: 'Djakovo')).update_all(city: 'Đakovo')
-    Ad.where(city: 'Fažana Pula').update_all(city: 'Fažana')
-    Ad.where(city: 'Ivanić-Grad').update_all(city: 'Ivanić Grad')
-    Ad.where(city: 'JANJINA (PELJEŠAC)').update_all(city: 'Janjina (Pelješac)')
-    Ad.where(city: 'Kaštela (Lukšić)').update_all(city: 'Kaštel Lukšić')
-    Ad.where(city: 'Korivnica').update_all(city: 'Koprivnica')
-    Ad.where(city: 'KRAVARSKO-NOVO BRDO').update_all(city: 'Kravarsko - Novo Brdo')
-    Ad.where(city: 'MOSTAR').update_all(city: 'Mostar')
-    Ad.where(city: 'MURTER').update_all(city: 'Murter')
-    Ad.where(city: 'Osjek').update_all(city: 'Osijek')
-    Ad.where(city: '---orebić').update_all(city: 'Orebić')
-    Ad.where(city: 'Podstrana , Split').or(Ad.where(city: 'Podstrana Split')).update_all(city: 'Podstrana')
-    Ad.where(city: 'SPLITSKA OTOK BRAČ').update_all(city: 'Splitska otok Brač')
-    Ad.where(city: 'Varazdinu').update_all(city: 'Varaždin')
-    Ad.where(city: 'Zaagreb').or(Ad.where(city: 'Grad Zagreb')).update_all(city: 'Zagreb')
-    Ad.where(city: 'ZAGREB( SESVETE)').update_all(city: 'Sesvete')
-    Ad.where(city: 'Vodice, ČISTA VELIKA').update_all(city: 'Vodice, Čista Velika')
-    Ad.where(city: 'Zašrešić').update_all(city: 'Zaprešić')
-    Ad.where(city: 'Jesenice(Omiš)').update_all(city: 'Jesenice (Omiš)')
+    cities_mapping = YAML.load_file(Rails.root.join('lib/tasks/cities_mapping.yml'))['cities']
+
+    cities_mapping.each do |city, misspelled_city_names|
+      misspelled_city_names.each do |misspelled_city_name|
+        Ad.where(city: misspelled_city_name).update_all(city: city)
+      end
+    end
 
     correctly_spelled_cities = %w[
       Andrijaševci
