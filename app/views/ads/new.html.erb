@@ -16,6 +16,7 @@
 
 <%= form_with model: @ad do |f| %>
   <%= f.invisible_captcha :title %>
+  <%= f.hidden_field :type, value: params[:type] %>
 
   <div class="field">
     <%= f.label :kind, class: "label" %>

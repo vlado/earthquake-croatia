@@ -12,6 +12,7 @@
 #  email       :string
 #  kind        :string
 #  phone       :string
+#  type        :string           default("ponuda"), not null
 #  zip         :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

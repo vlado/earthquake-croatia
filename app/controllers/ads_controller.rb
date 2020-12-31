@@ -3,14 +3,17 @@
 class AdsController < ApplicationController
   invisible_captcha only: [:create], honeypot: :title
 
+  # rubocop:disable Metrics/AbcSize
   def index
-    @ads = Ad.order(created_at: :desc).paginate(page: params[:page], per_page: 20)
+    @ads = Ad.order(created_at: :desc).paginate(page: params[:page], per_page: 1)
+    @ads = @ads.where(type: ad_type)
     @ads = @ads.where(kind: params[:kind]) if params[:kind].present?
     @ads = @ads.where(city: params[:city]) if params[:city].present?
   end
+  # rubocop:enable Metrics/AbcSize
 
   def new
-    @ad = Ad.new
+    @ad = Ad.new(type: ad_type)
   end
 
   def show
@@ -29,6 +32,13 @@ class AdsController < ApplicationController
   private
 
   def ad_params
-    params.require(:ad).permit(:kind, :city, :description, :email, :phone, :zip, :consent, :address)
+    params.require(:ad).permit(:kind, :city, :description, :email, :phone, :zip, :consent, :address, :type)
+  end
+
+  def ad_type
+    {
+      potražnja: "potražnja",
+      ponuda: "ponuda",
+    }.fetch(params[:type]&.to_sym, "ponuda")
   end
 end

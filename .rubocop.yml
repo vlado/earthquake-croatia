@@ -84,10 +84,9 @@ Naming/AccessorMethodName:
 
 Rails/OutputSafety:
  Enabled: true
- Exclude:
-  - "app/views/layouts/_flash_notice.html.slim.*"
-  - "app/views/layouts/readonly.html.slim.*"
-  - "app/helpers/term_helper.rb"
 
 Rails/DynamicFindBy:
+ Enabled: false
+
+Style/OptionalBooleanParameter:
  Enabled: false

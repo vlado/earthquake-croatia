@@ -1,15 +1,25 @@
-<%= javascript_tag do %>
-<% end %>
+<div class="tabs">
+  <ul>
+    <li class=<%= class_if('is-active', ['ponuda', ''].include?(params[:type])) %>>
+      <%= link_to "Nudim Pomoć", root_path %>
+    </li>
+    <li class=<%= class_if('is-active', params[:type] == 'potražnja') %>>
+      <%= link_to "Tražim Pomoć", ads_path(type: "potražnja") %>
+    </li>
+  </ul>
+</div>
 
 <div data-controller="filter">
   <div class="mb-6">
-    <%= link_to "Dodaj oglas", new_ad_path, class: "button is-link" %>
+    <%= link_to "Dodaj oglas", new_ad_path(type: params[:type]), class: "button is-link" %>
     <%= link_to "Filtriraj", "#", class: "button", data: { action: "filter#show", "filter-target": "show_button" } %>
   </div>
 
   <div data-filter-target="container" class="card mb-6">
     <div class="card-content">
       <%= form_with url: ads_path, method: :get do |f| %>
+        <%= f.hidden_field :type, value: params[:type] %>
+
         <div class="columns">
           <div class="column is-narrow">
             <div class="field">
@@ -50,13 +60,13 @@
     <% if params[:city].present? %>
       <span class="tag">
         <%= params[:city] %>
-        <%= link_to "", params.permit(:kind), class: "delete is-small"  %>
+        <%= link_to "", params.permit(:kind, :type), class: "delete is-small"  %>
       </span>
     <% end %>
     <% if params[:kind].present? %>
       <span class="tag">
         <%= params[:kind] %>
-        <%= link_to "", params.permit(:city), class: "delete is-small"  %>
+        <%= link_to "", params.permit(:city, :type), class: "delete is-small"  %>
       </span>
     <% end %>
   </div>
