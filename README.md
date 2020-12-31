@@ -1,4 +1,10 @@
-# Potres-app
+# Earthquake Croatia web application
+
+This application allows citizens to offer and request help in areas affected by
+earthquake and possibly other hazardous situations. It is currently hosted at
+[potres.herokuapp.com](http://potres.herokuapp.com/)
+
+![Screenshot](doc/img/screenshot.png)
 
 ## How to contribute
 
@@ -13,6 +19,19 @@ We need the UI to be responsive since this app is heavily used on mobile phones.
 
 ## Environment setup
 
+### Make it simple
+
+```bash
+# Build the container
+make build
+
+# Create, migrate and seed the database
+make db-create
+
+# Start the server
+make server
+```
+
 ### Docker Compose
 
 ```bash
@@ -23,13 +42,15 @@ docker-compose build
 docker-compose up
 
 # In another console run
-docker-compose run web rake db:create
-docker-compose run web rake db:migrate
-docker-compose run web rake webpacker:install
+docker-compose run web rails db:create
+docker-compose run web rails db:migrate
+docker-compose run web rails webpacker:install
 
 ```
 
-### Install Ruby
+### Local installation
+
+#### Ruby setup
 
 ```bash
 # Install gnupg
@@ -45,10 +66,10 @@ gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703
 rvm install ruby-2.7.1
 
 # Activate environment
-source /Users/bvunder/.rvm/scripts/rvm
+source ${HOME}/.rvm/scripts/rvm
 ```
 
-### Install dependencies
+#### System dependencies
 
 ```bash
 # On OSX install postgres and run server
@@ -66,13 +87,13 @@ rails db:migrate
 rails webpacker:install
 ```
 
-### Optionally add dummy data
+#### [optional] Add dummy data
 
 ```bash
 rails db:seed
 ```
 
-### Run server locally
+#### Run server
 
 ```bash
 rails s
