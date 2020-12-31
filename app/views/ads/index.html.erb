@@ -4,7 +4,7 @@
       <%= link_to "Nudim Pomoć", root_path %>
     </li>
     <li class=<%= class_if('is-active', params[:type] == 'potražnja') %>>
-      <%= link_to "Tražim Pomoć", ads_path(type: "potražnja") %>
+      <%= link_to "Tražim Pomoć", root_path(type: "potražnja") %>
     </li>
   </ul>
 </div>
