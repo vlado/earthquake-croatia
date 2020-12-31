@@ -30,16 +30,16 @@
           </div>
           <% if ad.maps_query.present? %>
             <div class="column is-narrow">
-              <div class="tags has-addons">
-                <span class="tag">Lokacija na karti</span>
-                <span class="tag">
-                  <a href="<%= maps_url(ad.maps_query) %>" target="_blank">
+              <a href="<%= maps_url(ad.maps_query) %>" target="_blank" style="display: block">
+                <div class="tags has-addons">
+                  <span class="tag">Lokacija na karti</span>
+                  <span class="tag is-info">
                     <span class="icon">
                       <i class="fas fa-map-marked-alt"></i>
                     </span>
-                  </a>
-                </span>
-              </div>
+                  </span>
+                </div>
+              </a>
             </div>
           <% end %>
         <% end %>
