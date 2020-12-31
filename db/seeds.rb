@@ -9,7 +9,7 @@
 ads_data = []
 number_of_ads = 500
 
-100.times do
+number_of_ads.times do
   ads_data << {
     city: %w[Slatina Neum Makarska Varaždin Varazdin Bibinje Zagreb Križevci Krizevci].sample,
     zip: rand(10_000..99_000),
