@@ -5,7 +5,6 @@
 
 import Rails from "@rails/ujs";
 import Turbolinks from "turbolinks";
-import ClipboardJS from "clipboard";
 // import * as ActiveStorage from "@rails/activestorage"
 // import "channels"
 
@@ -13,36 +12,4 @@ Rails.start();
 Turbolinks.start();
 // ActiveStorage.start()
 
-document.addEventListener("turbolinks:load", function(event) {
-
-  if (typeof gtag === "function") {
-    gtag("config", "<%= Rails.application.credentials.dig(:google_analytics) %>", { // eslint-disable-line no-undef
-      "page_location": event.data.url
-    });
-  }
-
-  let $filterShowLink = $("a#filter-show");
-  let $filterHideLink = $("a#filter-hide");
-  let $filterCard = $("#filter-card");
-
-  var clipboard = new ClipboardJS("button.copy-clipboard");
-  clipboard.on("success", function() {
-    alert("Poveznica kopirana");
-  });
-
-  $filterCard.hide();
-
-  $filterShowLink.on("click", function(e) {
-    e.preventDefault();
-    $filterCard.show();
-    $filterShowLink.hide();
-  });
-
-  $filterHideLink.on("click", function(e) {
-    e.preventDefault();
-    $filterCard.hide();
-    $filterShowLink.show();
-  });
-
-});
-
+import "controllers";
