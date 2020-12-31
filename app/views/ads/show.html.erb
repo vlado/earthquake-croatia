@@ -40,73 +40,71 @@
 
 <br />
 
-<!-- 
-NOVI KOMENTAR
-!-->
-
-<article class="media">
-  <figure class="media-left">
-    <p class="image is-64x64">
-      <img src="https://icon-library.com/images/instagram-comment-icon/instagram-comment-icon-22.jpg">
-    </p>
-  </figure>
-  <div class="media-content">
-    <div class="field">
-      <p class="control">
-        <textarea class="textarea" placeholder="Add a comment..."></textarea>
+<%= form_with model: Comment do |f| %>
+  <%= f.hidden_field :ad_id, value: @ad.id %>
+  <article class="media">
+    <figure class="media-left">
+      <p class="image is-64x64">
+        <img src="https://icon-library.com/images/instagram-comment-icon/instagram-comment-icon-22.jpg">
       </p>
+    </figure>
+    <div class="media-content">
+      <div class="field">
+        <%= f.label :name, 'Ime i prezime', class: 'label' %>
+        <p class="control">
+          <%= f.text_field :name, class: 'input', value: '' %>
+        </p>
+      </div>
+      <div class="field">
+        <%= f.label :body, 'Komentar', class: 'label' %>
+        <p class="control">
+          <%= f.text_area :body, class: 'input' %>
+        </p>
+      </div>
+      <nav class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <%= f.submit 'Pošalji', class: 'button is-info' %>
+          </div>
+        </div>
+      </nav>
     </div>
-    <nav class="level">
-      <div class="level-left">
-        <div class="level-item">
-          <a class="button is-info">Submit</a>
-        </div>
-      </div>
-      <div class="level-right">
-        <div class="level-item">
-          <label class="checkbox">
-            <input type="checkbox"> Press enter to submit
-          </label>
-        </div>
-      </div>
-    </nav>
-  </div>
-</article>
+  </article>
+<% end %>
 
 <hr>
 
 <h2><b>Komentari</b></h2>
 <br />
 
-<article class="media">
-  <figure class="media-left">
-    <p class="image is-64x64">
-      <img src="https://freeiconshop.com/wp-content/uploads/edd/person-outline.png">
-    </p>
-  </figure>
-  <div class="media-content">
-    <div class="content">
-      <p>
-        <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
-        <br>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+<%- @ad.comments.each do |comment| %>
+  <article class="media">
+    <figure class="media-left">
+      <p class="image is-64x64">
+        <img src="https://freeiconshop.com/wp-content/uploads/edd/person-outline.png">
       </p>
-    </div>
-    <nav class="level is-mobile">
-      <div class="level-left">
-        <a class="level-item">
-          <span class="icon is-small"><i class="fas fa-reply"></i></span>
-        </a>
-        <a class="level-item">
-          <span class="icon is-small"><i class="fas fa-retweet"></i></span>
-        </a>
-        <a class="level-item">
-          <span class="icon is-small"><i class="fas fa-heart"></i></span>
-        </a>
+    </figure>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong><%= comment.name %></strong> <small><%= time_ago_in_words(comment.created_at) %></small>
+          <br>
+          <%= comment.body %>
+        </p>
       </div>
-    </nav>
-  </div>
-  <div class="media-right">
-    <button class="delete"></button>
-  </div>
-</article>
+      <nav class="level is-mobile">
+        <div class="level-left">
+          <a class="level-item">
+            <span class="icon is-small"><i class="fas fa-reply"></i></span>
+          </a>
+          <a class="level-item">
+            <span class="icon is-small"><i class="fas fa-retweet"></i></span>
+          </a>
+          <a class="level-item">
+            <span class="icon is-small"><i class="fas fa-heart"></i></span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </article>
+<% end %>

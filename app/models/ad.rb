@@ -5,9 +5,5 @@ class Ad < ApplicationRecord
   validates :phone, presence: true
   validates :consent, presence: true
 
-  has_many :comments
-
-  def comment_count
-    comments.count
-  end
+  has_many :comments, dependent: :destroy
 end
