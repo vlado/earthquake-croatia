@@ -2,12 +2,12 @@
 <% end %>
 
 <div data-controller="filter">
-  <div style="margin-bottom:40px">
+  <div class="mb-6">
     <%= link_to "Dodaj oglas", new_ad_path, class: "button is-link" %>
     <%= link_to "Filtriraj", "#", class: "button", data: { action: "filter#show", "filter-target": "show_button" } %>
   </div>
 
-  <div data-filter-target="container" class="card" style="margin-bottom:40px">
+  <div data-filter-target="container" class="card mb-6">
     <div class="card-content">
       <%= form_with url: ads_path, method: :get do |f| %>
         <div class="columns">
@@ -46,7 +46,7 @@
 </div>
 
 <% if filtered? %>
-  <div style="margin-bottom:40px">
+  <div class="mb-6">
     <% if params[:city].present? %>
       <span class="tag">
         <%= params[:city] %>
