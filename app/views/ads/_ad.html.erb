@@ -1,0 +1,53 @@
+<div class="card" style="margin-bottom:30px">
+  <div class="card-content">
+    <div class="content">
+      <div class="columns is-desktop">
+        <div class="column is-narrow">
+          <div class="tags">
+            <%= kind_tag ad %>
+          </div>
+        </div>
+        <div class="column is-narrow">
+          <div class="tags has-addons">
+            <span class="tag">Grad</span>
+            <span class="tag is-info"><%= ad.city %></span>
+          </div>
+        </div>
+        <% if ad.zip.present? %>
+          <div class="column is-narrow">
+            <div class="tags has-addons">
+              <span class="tag">Poštanski broj</span>
+              <span class="tag is-info"><%= ad.zip %></span>
+            </div>
+          </div>
+        <% end %>
+        <% if ad.address.present? %>
+          <div class="column is-narrow">
+            <div class="tags has-addons">
+              <span class="tag">Adresa</span>
+              <span class="tag is-info"><%= ad.address %></span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <%= simple_format ad.description %>
+
+      <hr>
+
+      <div class="columns">
+        <div class="column">Telefon: <b><%= tel_to ad.phone %></b></div>
+        <div class="column">Objavljeno: <b>prije <%= time_ago_in_words ad.created_at %></b></div>
+      </div>
+      <hr>
+      <div class="columns">
+        <div class="column">URL oglasa: <%= link_to ad_url(ad.to_param), ad_url(ad.to_param) %></div>
+        <div class="column">
+          <button class="button copy-clipboard" data-clipboard-text="<%= ad_url(ad.to_param) %>">
+            Kopiraj poveznicu na oglas
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
