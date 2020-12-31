@@ -52,6 +52,6 @@ class Ad < ApplicationRecord
   end
 
   def maps_query
-    [address.gsub(' ', '+'),zip, city].join(',+')
+    [address.gsub(' ', '+'), zip, city].select(:present?).join(',+')
   end
 end
