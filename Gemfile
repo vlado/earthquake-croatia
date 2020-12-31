@@ -31,7 +31,7 @@ gem "jbuilder", "~> 2.7"
 gem "bootsnap", ">= 1.4.4", require: false
 
 group :production do
-  gem "rack-host-redirect"
+  gem "rack-canonical-host"
 end
 
 group :development, :test do
