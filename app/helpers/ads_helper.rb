@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AdsHelper
   def city_and_zip(ad)
     items = [ad.city]
@@ -11,16 +13,16 @@ module AdsHelper
 
   def kind_tag(ad)
     color_class = if ad.accomodation?
-                  'is-success'
-                elsif ad.transportation?
-                  'is-info'
-                elsif ad.repair_service?
-                  'is-warning'
-                elsif ad.medical_help?
-                  'is-danger'
-                else
-                  'is-white'
-                end
+                    "is-success"
+                  elsif ad.transportation?
+                    "is-info"
+                  elsif ad.repair_service?
+                    "is-warning"
+                  elsif ad.medical_help?
+                    "is-danger"
+                  else
+                    "is-white"
+                  end
 
     tag.span(ad.kind, class: "tag #{color_class}")
   end

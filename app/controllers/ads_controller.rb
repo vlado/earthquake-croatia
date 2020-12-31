@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AdsController < ApplicationController
   invisible_captcha only: [:create], honeypot: :title
 
