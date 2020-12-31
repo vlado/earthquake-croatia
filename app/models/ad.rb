@@ -32,6 +32,9 @@ class Ad < ApplicationRecord
   ].freeze
   KINDS = %w[supply demand].freeze
 
+  include NormalizeColumn
+  normalize_column :city
+
   validates :city, presence: true
   validates :description, presence: true
   validates :phone, presence: true, on: %i[create update]

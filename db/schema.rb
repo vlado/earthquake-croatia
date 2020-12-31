@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2021_01_03_105959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "unaccent"
 
   create_table "ads", force: :cascade do |t|
     t.string "city"
