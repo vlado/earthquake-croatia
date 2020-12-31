@@ -19,7 +19,7 @@ class Ad < ApplicationRecord
 
   validates :city, presence: true
   validates :description, presence: true
-  validates :kind, presence: true
+  validates :kind, presence: true, inclusion: { in: KINDS }
   validates :consent, presence: { message: "mora biti odobrena" }
   validates :address, presence: { message: "ne smije biti prazna" }, on: [:create, :update]
   validates :email, format: /@/, if: -> { email.present? }
