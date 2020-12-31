@@ -5,7 +5,7 @@ module.exports = {
     jquery: true,
     node: true,
   },
-  // parser: "babel-eslint",
+  parser: "babel-eslint",
   extends: "eslint:recommended",
   parserOptions: {
     sourceType: "module",
