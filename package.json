@@ -8,6 +8,7 @@
     "@rails/webpacker": "5.2.1",
     "clipboard": "^2.0.6",
     "stimulus": "^2.0.0",
+    "toastr": "^2.1.4",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
