@@ -1,44 +1,24 @@
 cities:
-  Bjelovar:
-    - Bijelovar
-  Đakovo:
-    - Dakovo
-    - Djakovo
-  Fažana:
-    - Fažana Pula
-  Ivanić Grad:
-    - Ivanić-Grad
-  Janjina (Pelješac):
-    - JANJINA (PELJEŠAC)
-  Kaštel Lukšić:
-    - Kaštela (Lukšić)
-  Koprivnica:
-    - Korivnica
-  Kravarsko - Novo Brdo:
-    - KRAVARSKO-NOVO BRDO
-  Mostar:
-    - MOSTAR
-  Murter:
-    - MURTER
-  Osijek:
-    - Osjek
-  Orebić:
-    - ---orebić
-  Podstrana:
-    - Podstrana , Split
-    - Podstrana Split
-  Splitska otok Brač:
-    - SPLITSKA OTOK BRAČ
-  Varaždin:
-    - Varazdinu
-  Zagreb:
-    - Zaagreb
-    - Grad Zagreb
-  Sesvete:
-    - ZAGREB( SESVETE)
-  Vodice, Čista Velika:
-    - Vodice, ČISTA VELIKA
-  Zaprešić:
-    - Zašrešić
-  Jesenice (Omiš):
-    - Jesenice(Omiš)
+  Bijelovar: Bjelovar
+  Dakovo: Đakovo
+  Djakovo: Đakovo
+  Fažana Pula: Fažana
+  Ivanić-Grad: Ivanić Grad
+  JANJINA (PELJEŠAC): Janjina (Pelješac)
+  Kaštela (Lukšić): Kaštel Lukšić
+  Korivnica: Koprivnica
+  KRAVARSKO-NOVO BRDO: Kravarsko - Novo Brdo
+  MOSTAR: Mostar
+  MURTER: Murter
+  Osjek: Osijek
+  ---orebić: Orebić
+  Podstrana , Split: Podstrana
+  Podstrana Split: Podstrana
+  SPLITSKA OTOK BRAČ: Splitska otok Brač
+  Varazdinu: Varaždin
+  Zaagreb: Zagreb
+  Grad Zagreb: Zagreb
+  ZAGREB( SESVETE): Sesvete
+  Vodice, ČISTA VELIKA: Vodice, Čista Velika
+  Zašrešić: Zaprešić
+  Jesenice(Omiš): Jesenice (Omiš)

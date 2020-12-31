@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2021_01_03_105959) do
     t.string "address"
     t.integer "kind", default: 0, null: false
     t.integer "category", default: 0, null: false
+    t.index ["city"], name: "index_ads_on_city"
+    t.index ["created_at"], name: "index_ads_on_created_at"
   end
 
 end

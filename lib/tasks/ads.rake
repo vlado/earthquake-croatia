@@ -4,23 +4,21 @@ namespace :ads do
     puts "Normalizing city names..."
 
     Ad.all.find_each do |ad|
-      ad.city = ad.city.squish
+      city = ad.city.squish
       # if it's only one word, make sure it's not ALLCAPS
-      ad.city = if ad.city.split(/[^[[:word:]]]+/).size == 1
-                  ad.city.titleize
-                else
-                  ad.city.upcase_first
-                end
-      # skip validation to prevent NormalizeColumn to kick in
-      ad.save!(validate: false)
+      city = if city.split(/[^[[:word:]]]+/).size == 1
+                city.titleize
+              else
+                city.upcase_first
+              end
+      # skip validation to prevent NormalizeCityName to kick in
+      ad.update_column(:city, city)
     end
 
     cities_mapping = YAML.load_file(Rails.root.join('lib/tasks/cities_mapping.yml'))['cities']
 
-    cities_mapping.each do |city, misspelled_city_names|
-      misspelled_city_names.each do |misspelled_city_name|
-        Ad.where(city: misspelled_city_name).update_all(city: city)
-      end
+    cities_mapping.each do |misspelled_city_name, correct_city_name|
+      Ad.where(city: misspelled_city_name).update_all(city: correct_city_name)
     end
 
     correctly_spelled_cities = %w[
