@@ -25,7 +25,6 @@ document.addEventListener("turbolinks:load", function(event) {
   let $filterHideLink = $('a#filter-hide');
   let $filterCard = $('#filter-card');
 
-  console.log('bar')
   var clipboard = new ClipboardJS('button.copy-clipboard');
   clipboard.on('success', function(e) {
     alert('Poveznica kopirana')
