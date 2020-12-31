@@ -21,15 +21,11 @@ class Ad < ApplicationRecord
 
   validates :city, presence: true
   validates :description, presence: true
+  validates :phone, presence: true, on: %i[create update]
   validates :kind, presence: true, inclusion: { in: KINDS }
   validates :consent, presence: { message: "mora biti odobrena" }
   validates :address, presence: { message: "ne smije biti prazna" }, on: %i[create update]
   validates :email, format: /@/, if: -> { email.present? }
-
-  validate :phone_or_email_present, on: %i[create update]
-  def phone_or_email_present
-    errors.add(:base, "Email ili telefon su obavezni") if phone.blank? && email.blank?
-  end
 
   def accomodation?
     kind == "Smještaj"
