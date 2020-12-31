@@ -5,3 +5,22 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+ads_data = []
+
+100.times do
+  ads_data << {
+    city: %w[Slatina Neum Makarska Varaždin Varazdin Bibinje Zagreb Križevci Krizevci].sample,
+    zip: rand(10_000..99_000),
+    phone: '0' + rand(9_000_00_00..9_999_99_99).to_s,
+    description: FFaker::Lorem.paragraph,
+    email: rand(0..100) < 40 ? FFaker::Internet.email : nil, # 40% chance ad has email
+    kind: Ad::KINDS.sample,
+    consent: true,
+    address: FFaker::Address.street_name
+  }
+end
+
+Ad.create!(ads_data)
+
+puts "Generated 100 ads"
