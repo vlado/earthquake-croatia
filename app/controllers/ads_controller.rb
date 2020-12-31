@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 class AdsController < ApplicationController
   invisible_captcha only: [:create], honeypot: :title
 
   def index
-    @ads = Ad.order(created_at: :desc).paginate(page: params[:page], per_page: 100)
+    @ads = Ad.order(created_at: :desc).paginate(page: params[:page], per_page: 20)
     @ads = @ads.where(kind: params[:kind]) if params[:kind].present?
     @ads = @ads.where(city: params[:city]) if params[:city].present?
   end

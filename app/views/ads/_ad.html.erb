@@ -30,16 +30,16 @@
           </div>
           <% if ad.maps_query.present? %>
             <div class="column is-narrow">
-              <div class="tags has-addons">
-                <span class="tag">Lokacija na karti</span>
-                <span class="tag">
-                  <a href="<%= maps_url(ad.maps_query) %>" target="_blank">
+              <a href="<%= maps_url(ad.maps_query) %>" target="_blank" style="display: block">
+                <div class="tags has-addons">
+                  <span class="tag">Lokacija na karti</span>
+                  <span class="tag is-info">
                     <span class="icon">
                       <i class="fas fa-map-marked-alt"></i>
                     </span>
-                  </a>
-                </span>
-              </div>
+                  </span>
+                </div>
+              </a>
             </div>
           <% end %>
         <% end %>
@@ -54,10 +54,10 @@
         <div class="column">Objavljeno: <b>prije <%= time_ago_in_words ad.created_at %></b></div>
       </div>
       <hr>
-      <div class="columns">
+      <div class="columns" data-controller="clipboard">
         <div class="column">URL oglasa: <%= link_to ad_url(ad.to_param), ad_url(ad.to_param) %></div>
         <div class="column">
-          <button class="button copy-clipboard" data-clipboard-text="<%= ad_url(ad.to_param) %>">
+          <button data-clipboard-target="button" class="button" data-clipboard-text="<%= ad_url(ad.to_param) %>">
             Kopiraj poveznicu na oglas
           </button>
         </div>

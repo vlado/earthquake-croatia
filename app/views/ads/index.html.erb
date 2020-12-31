@@ -1,45 +1,47 @@
 <%= javascript_tag do %>
 <% end %>
 
-<div style="margin-bottom:40px">
-  <%= link_to "Dodaj oglas", new_ad_path, class: "button is-link" %>
-  <%= link_to "Filtriraj", "#", id: "filter-show", class: "button" %>
-</div>
+<div data-controller="filter">
+  <div style="margin-bottom:40px">
+    <%= link_to "Dodaj oglas", new_ad_path, class: "button is-link" %>
+    <%= link_to "Filtriraj", "#", class: "button", data: { action: "filter#show", "filter-target": "show_button" } %>
+  </div>
 
-<div id="filter-card" class="card" style="margin-bottom:40px">
-  <div class="card-content">
-    <%= form_with url: ads_path, method: :get do |f| %>
-      <div class="columns">
-        <div class="column is-narrow">
-          <div class="field">
-            <div class="control">
-              <div class="select">
-                <%= select_tag :kind, options_for_select(Ad::KINDS, params[:kind]), prompt: "-- Svi tipovi --" %>
+  <div data-filter-target="container" class="card" style="margin-bottom:40px">
+    <div class="card-content">
+      <%= form_with url: ads_path, method: :get do |f| %>
+        <div class="columns">
+          <div class="column is-narrow">
+            <div class="field">
+              <div class="control">
+                <div class="select">
+                  <%= select_tag :kind, options_for_select(Ad::KINDS, params[:kind]), prompt: "-- Svi tipovi --" %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-narrow">
+            <div class="field">
+              <div class="control">
+                <div class="select">
+                  <%= select_tag :city, options_for_select(Ad.order(:city).pluck("distinct(city)"), params[:city]), prompt: "-- Svi gradovi --" %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-narrow">
+            <div class="field">
+              <div class="control">
+                <%= f.submit "Filtriraj", class: "button is-primary" %>
+                <%= link_to "Odustani", "#", class: "button", data: { action: "filter#hide" } %>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="column is-narrow">
-          <div class="field">
-            <div class="control">
-              <div class="select">
-                <%= select_tag :city, options_for_select(Ad.order(:city).pluck("distinct(city)"), params[:city]), prompt: "-- Svi gradovi --" %>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="column is-narrow">
-          <div class="field">
-            <div class="control">
-              <%= f.submit "Filtriraj", class: "button is-primary" %>
-              <%= link_to "Odustani", "#", id: "filter-hide", class: "button" %>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 
@@ -62,7 +64,7 @@
 
 <%= render @ads %>
 
-<%= will_paginate @ads, renderer: BulmaPagination::Rails, class: 'is-centered', previous_label: "&larr;", next_label: "&rarr;" %>
+<%= will_paginate @ads, renderer: BulmaPagination::Rails, class: 'is-centered', previous_label: "&larr;", next_label: "&rarr;", inner_window: 1, outer_window: 0 %>
 
 <div class="content">
   <h3 class="title is-3">Ostale stranice sa popisima ponude smještaja i prijevoza:</h3>

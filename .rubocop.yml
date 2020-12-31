@@ -1,0 +1,93 @@
+---
+require:
+ - rubocop-rails
+
+AllCops:
+ NewCops: enable
+ Exclude:
+  - 'script/**/*'
+  - 'bin/**/*'
+  - 'db/**/*'
+  - 'config/**/*'
+  - 'lib/tasks/**/*'
+  - 'node_modules/**/*'
+  - 'app/frontend/**/*'
+  - 'Guardfile'
+  - 'vendor/**/*'
+  - 'tmp/**/*'
+
+Style/Documentation:
+ Enabled: false
+
+Naming/MethodParameterName:
+ Enabled: false
+
+Lint/SuppressedException:
+ Enabled: false
+
+Style/RescueStandardError:
+ Enabled: false
+
+Layout/LineLength:
+ Enabled: false
+
+Metrics/ClassLength:
+ Exclude:
+  - 'test/**/*'
+
+Metrics/AbcSize:
+ Exclude:
+  - 'test/**/*'
+
+Metrics/MethodLength:
+ Enabled: false
+
+Metrics/BlockLength:
+ Enabled: false
+
+Style/ClassAndModuleChildren:
+ Enabled: false
+
+Style/StringLiterals:
+ Enabled: true
+ EnforcedStyle: double_quotes
+
+Style/NumericLiteralPrefix:
+ Enabled: false
+
+Style/NumericLiterals:
+ Enabled: false
+
+Style/TrailingCommaInHashLiteral:
+ Enabled: true
+ EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArrayLiteral:
+ Enabled: true
+ EnforcedStyleForMultiline: comma
+
+Rails/UnknownEnv:
+ Environments:
+  - production
+  - development
+  - test
+  - staging
+
+Rails/SkipsModelValidations:
+ Enabled: false
+
+Naming/MemoizedInstanceVariableName:
+ Enabled: false
+
+Naming/AccessorMethodName:
+ Enabled: false
+
+Rails/OutputSafety:
+ Enabled: true
+ Exclude:
+  - "app/views/layouts/_flash_notice.html.slim.*"
+  - "app/views/layouts/readonly.html.slim.*"
+  - "app/helpers/term_helper.rb"
+
+Rails/DynamicFindBy:
+ Enabled: false
