@@ -66,6 +66,12 @@ rails db:migrate
 rails webpacker:install
 ```
 
+### Optionally add dummy data
+
+```bash
+rails db:seed
+```
+
 ### Run server locally
 
 ```bash
