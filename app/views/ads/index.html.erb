@@ -1,6 +1,6 @@
 <div class="tabs">
   <ul>
-    <li class=<%= class_if('is-active', ['ponuda', ''].include?(params[:type])) %>>
+    <li class=<%= class_if('is-active', ['ponuda', '', nil].include?(params[:type])) %>>
       <%= link_to "Nudim Pomoć", root_path %>
     </li>
     <li class=<%= class_if('is-active', params[:type] == 'potražnja') %>>
