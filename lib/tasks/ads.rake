@@ -1,5 +1,6 @@
-class NormalizeCities < ActiveRecord::Migration[6.1]
-  def up
+namespace :ads do
+  desc 'Merges different spelling of city names into one per city'
+  task normalize_city_names: :environment do
     puts "Normalizing city names..."
 
     Ad.all.find_each do |ad|
@@ -69,7 +70,4 @@ class NormalizeCities < ActiveRecord::Migration[6.1]
 
     puts "City names normalized!"
   end
-
-  # do nothing, we don't need to fail if going down
-  def down; end
 end

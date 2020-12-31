@@ -5,7 +5,7 @@ module NormalizeColumn
 
   included do
     def self.normalize_column(column_name)
-      before_validation -> do
+      before_validation -> do # rubocop:disable Style/Lambda
         value = self[column_name]
         next unless value
 
