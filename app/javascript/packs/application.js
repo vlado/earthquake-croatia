@@ -5,7 +5,6 @@
 
 import Rails from "@rails/ujs";
 import Turbolinks from "turbolinks";
-import ClipboardJS from "clipboard";
 // import * as ActiveStorage from "@rails/activestorage"
 // import "channels"
 
@@ -25,11 +24,6 @@ document.addEventListener("turbolinks:load", function(event) {
   let $filterHideLink = $("a#filter-hide");
   let $filterCard = $("#filter-card");
 
-  var clipboard = new ClipboardJS("button.copy-clipboard");
-  clipboard.on("success", function() {
-    alert("Poveznica kopirana");
-  });
-
   $filterCard.hide();
 
   $filterShowLink.on("click", function(e) {
@@ -46,3 +40,4 @@ document.addEventListener("turbolinks:load", function(event) {
 
 });
 
+import "controllers";

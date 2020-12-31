@@ -54,10 +54,10 @@
         <div class="column">Objavljeno: <b>prije <%= time_ago_in_words ad.created_at %></b></div>
       </div>
       <hr>
-      <div class="columns">
+      <div class="columns" data-controller="clipboard">
         <div class="column">URL oglasa: <%= link_to ad_url(ad.to_param), ad_url(ad.to_param) %></div>
         <div class="column">
-          <button class="button copy-clipboard" data-clipboard-text="<%= ad_url(ad.to_param) %>">
+          <button data-target="clipboard.button" class="button" data-clipboard-text="<%= ad_url(ad.to_param) %>">
             Kopiraj poveznicu na oglas
           </button>
         </div>
