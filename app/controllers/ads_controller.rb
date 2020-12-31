@@ -5,7 +5,7 @@ class AdsController < ApplicationController
 
   # rubocop:disable Metrics/AbcSize
   def index
-    @ads = Ad.order(created_at: :desc).paginate(page: params[:page], per_page: 1)
+    @ads = Ad.order(created_at: :desc).paginate(page: params[:page], per_page: 20)
     @ads = @ads.where(type: ad_type)
     @ads = @ads.where(kind: params[:kind]) if params[:kind].present?
     @ads = @ads.where(city: params[:city]) if params[:city].present?
