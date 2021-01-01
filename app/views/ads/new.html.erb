@@ -1,5 +1,9 @@
 <h2 class="subtitle">Novi oglas</h2>
 
+<div class="content">
+  <p>Polja označena * su obavezna.</p>
+</div>
+
 <% if @ad.errors.any? %>
   <article class="message is-danger">
     <div class="message-header">
@@ -48,7 +52,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :phone, "Kontakt telefon", class: "label" %>
+    <%= f.label :phone, class: "label" %>
     <div class="control">
       <%= f.text_field :phone, class: "input" %>
     </div>
