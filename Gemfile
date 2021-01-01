@@ -33,6 +33,7 @@ gem "bootsnap", ">= 1.4.4", require: false
 group :production do
   gem "rack-canonical-host"
   # Use Sentry for error tracking
+  gem "sentry-rails"
   gem "sentry-ruby"
 end
 
