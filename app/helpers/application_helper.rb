@@ -8,4 +8,8 @@ module ApplicationHelper
   def class_if(klass, boolean = false)
     klass if boolean
   end
+
+  def flash_class(type)
+    { "notice" => "is-success", "error" => "is-danger", "alert" => "is-warning" }[type]
+  end
 end
