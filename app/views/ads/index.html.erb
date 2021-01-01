@@ -1,31 +1,22 @@
-<div class="tabs">
-  <ul>
-    <li class=<%= class_if('is-active', ['ponuda', '', nil].include?(params[:type])) %>>
-      <%= link_to "Nudim Pomoć", root_path %>
-    </li>
-    <li class=<%= class_if('is-active', params[:type] == 'potražnja') %>>
-      <%= link_to "Tražim Pomoć", root_path(type: "potražnja") %>
-    </li>
-  </ul>
-</div>
+<%= render "kind_tabs" %>
 
 <div data-controller="filter">
   <div class="mb-6">
-    <%= link_to "Dodaj oglas", new_ad_path(type: params[:type]), class: "button is-link" %>
+    <%= link_to "Dodaj oglas", new_ad_path(kind: params[:kind]), class: "button is-link" %>
     <%= link_to "Filtriraj", "#", class: "button", data: { action: "filter#show", "filter-target": "show_button" } %>
   </div>
 
   <div data-filter-target="container" class="card mb-6">
     <div class="card-content">
       <%= form_with url: ads_path, method: :get do |f| %>
-        <%= f.hidden_field :type, value: params[:type] %>
+        <%= f.hidden_field :kind, value: params[:kind] %>
 
         <div class="columns">
           <div class="column is-narrow">
             <div class="field">
               <div class="control">
                 <div class="select">
-                  <%= select_tag :kind, options_for_select(Ad::KINDS, params[:kind]), prompt: "-- Svi tipovi --" %>
+                  <%= select_tag :service, options_for_select(Ad::SERVICES, params[:service]), prompt: "-- Sve usluge --" %>
                 </div>
               </div>
             </div>
@@ -60,13 +51,13 @@
     <% if params[:city].present? %>
       <span class="tag">
         <%= params[:city] %>
-        <%= link_to "", params.permit(:kind, :type), class: "delete is-small"  %>
+        <%= link_to "", params.permit(:service, :kind), class: "delete is-small"  %>
       </span>
     <% end %>
-    <% if params[:kind].present? %>
+    <% if params[:service].present? %>
       <span class="tag">
-        <%= params[:kind] %>
-        <%= link_to "", params.permit(:city, :type), class: "delete is-small"  %>
+        <%= params[:service] %>
+        <%= link_to "", params.permit(:city, :kind), class: "delete is-small"  %>
       </span>
     <% end %>
   </div>

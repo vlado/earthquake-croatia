@@ -8,10 +8,14 @@ module AdsHelper
   end
 
   def filtered?
-    params[:kind].present? || params[:city].present?
+    params[:service].present? || params[:city].present?
   end
 
-  def kind_tag(ad)
+  def kinds_for_select
+    Ad.kinds.keys.map { |key| [I18n.t("ad.kinds.#{key}"), key] }
+  end
+
+  def service_tag(ad)
     color_class = if ad.accomodation?
                     "is-success"
                   elsif ad.transportation?
@@ -24,7 +28,7 @@ module AdsHelper
                     "is-white"
                   end
 
-    tag.span(ad.kind, class: "tag #{color_class}")
+    tag.span(ad.service, class: "tag #{color_class}")
   end
 
   def maps_url(location)

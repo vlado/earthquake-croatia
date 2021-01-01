@@ -1,4 +1,9 @@
 hr:
+  ad:
+    kinds:
+      demand: Tražim pomoć
+      supply: Nudim pomoć
+
   activerecord:
     models:
       ad: Oglas
@@ -11,3 +16,4 @@ hr:
         zip: Poštanski broj
         consent: Privola
         address: Adresa
+        service: Usluga

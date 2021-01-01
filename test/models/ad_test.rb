@@ -10,9 +10,9 @@
 #  consent     :boolean
 #  description :text
 #  email       :string
-#  kind        :string
+#  kind        :integer          default(0), not null
 #  phone       :string
-#  type        :string           default("ponuda"), not null
+#  service     :string           not null
 #  zip         :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

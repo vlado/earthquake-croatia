@@ -1,0 +1,14 @@
+#!/bin/bash
+
+echo "-----> Droping and recreating development database"
+bin/rake db:drop db:create
+
+echo "-----> Exporting production database"
+# heroku pg:backups capture -a potres
+
+echo "-----> Downloading production database"
+# curl -o tmp/latest.dump `heroku pg:backups public-url -a potres`
+
+echo "-----> Importing to development database"
+pg_restore --verbose --clean --no-acl --no-owner -h localhost -d potres_development tmp/latest.dump
+bin/rake db:environment:set

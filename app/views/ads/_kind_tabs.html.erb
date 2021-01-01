@@ -1,0 +1,11 @@
+<div class="tabs">
+  <ul>
+    <li class=<%= class_if('is-active', ad_kind == "supply") %>>
+      <%= link_to "Nudim Pomoć", root_path %>
+    </li>
+    <li class=<%= class_if('is-active', ad_kind == "demand") %>>
+      <%= link_to "Tražim Pomoć", root_path(kind: "demand") %>
+    </li>
+  </ul>
+</div>
+

@@ -1,4 +1,6 @@
-<h2 class="subtitle">Novi oglas</h2>
+<%= render "kind_tabs" %>
+
+<h2 class="subtitle is-3">Novi oglas</h2>
 
 <% if @ad.errors.any? %>
   <article class="message is-danger">
@@ -16,13 +18,21 @@
 
 <%= form_with model: @ad do |f| %>
   <%= f.invisible_captcha :title %>
-  <%= f.hidden_field :type, value: @ad.type %>
 
   <div class="field">
     <%= f.label :kind, class: "label" %>
     <div class="control">
       <div class="select">
-        <%= f.select :kind, Ad::KINDS %>
+        <%= f.select :kind, kinds_for_select %>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :service, class: "label" %>
+    <div class="control">
+      <div class="select">
+        <%= f.select :service, Ad::SERVICES %>
       </div>
     </div>
   </div>
