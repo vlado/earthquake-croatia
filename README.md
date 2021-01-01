@@ -98,3 +98,11 @@ rails db:seed
 ```bash
 rails s
 ```
+
+## Statement
+
+This application is an open-source humanitarian project where everyone can participate and contribute. The sole purpose of this application is to help earthquake victims in the areas of Glina, Sisak, Petrinja, and surrounding villages and settlements.
+
+The app’s function serves as an advertisement platform among those who offer and seek help in areas affected by the earthquake. The use of this application is completely free, and ads can be placed by any citizen of the Republic of Croatia, the European Union, and neighboring countries.
+
+The web application project was made in collaboration with several software engineers and experts, who voluntarily participated in the creation, maintenance, and upgrade of this application.
