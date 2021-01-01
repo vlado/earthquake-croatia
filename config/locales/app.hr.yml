@@ -11,3 +11,12 @@ hr:
         zip: Poštanski broj
         consent: Privola
         address: Adresa
+
+  helpers:
+    label:
+      ad:
+        address: "Adresa *"
+        city: "Grad *"
+        description: "Opis *"
+        kind: "Tip oglasa *"
+        phone: "Kontakt Telefon *"
