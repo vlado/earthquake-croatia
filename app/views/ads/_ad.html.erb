@@ -50,7 +50,6 @@
       <div class="columns" data-controller="clipboard">
         <div class="column">
           <%= link_to "Otvori oglas", ad_path(ad.to_param), class: "button" %>
-            Otvori oglas
           </a>
           <button data-clipboard-target="button" class="button" data-clipboard-text="<%= ad_url(ad.to_param) %>">
             Kopiraj poveznicu na oglas
