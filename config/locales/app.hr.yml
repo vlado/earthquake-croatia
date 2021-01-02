@@ -17,3 +17,12 @@ hr:
         consent: Privola
         address: Adresa
         service: Usluga
+
+  helpers:
+    label:
+      ad:
+        address: "Adresa *"
+        city: "Grad *"
+        description: "Opis *"
+        kind: "Tip oglasa *"
+        phone: "Kontakt Telefon *"

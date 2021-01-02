@@ -10,7 +10,7 @@
 #  consent     :boolean
 #  description :text
 #  email       :string
-#  kind        :integer          default(0), not null
+#  kind        :integer          default("supply"), not null
 #  phone       :string
 #  service     :string           not null
 #  zip         :string
@@ -52,7 +52,11 @@ class Ad < ApplicationRecord
     [id, service.parameterize, city.parameterize].join("-")
   end
 
-  def maps_query
-    [address.gsub(" ", "+"), zip, city].select(&:present?).join(",+")
+  def full_address
+    [address, zip_and_city].select(&:present?).join(", ")
+  end
+
+  def zip_and_city
+    [zip, city].select(&:present?).join(" ")
   end
 end

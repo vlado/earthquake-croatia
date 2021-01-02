@@ -10,7 +10,7 @@
 #  consent     :boolean
 #  description :text
 #  email       :string
-#  kind        :integer          default(0), not null
+#  kind        :integer          default("supply"), not null
 #  phone       :string
 #  service     :string           not null
 #  zip         :string

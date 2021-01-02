@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Potres - Petrinja, Sisak i okolna mjesta</title>
+    <title>Potres - Petrinja, Sisak, Glina i okolna mjesta</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -22,15 +22,31 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body data-controller="google-analytics">
+  <body class="has-background-light" data-controller="google-analytics">
+    <section class="hero is-medium is-dark is-bold">
+      <div class="hero-body is-relative">
+        <div class="hero-background"></div>
+        <div class="container">
+          <h1 class="title">Pomozimo žrtvama potresa</h1>
+          <h2 class="subtitle">Petrinja, Sisak, Glina i okolna mjesta</h2>
+          <%= link_to "Dodaj oglas", new_ad_path(kind: params[:kind]), class: "button is-white is-medium" %>
+        </div>
+      </div>
+    </section>
     <section class="section">
       <div class="container">
-        <h1 class="title">Pomozimo žrtvama potresa</h1>
-        <h2 class="subtitle">Petrinja, Sisak i okolna mjesta</h2>
-        <%= render "shared/flash" %>
         <%= yield %>
       </div>
     </section>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+        Ova je aplikacija humanitarni projekt otvorenog tipa gdje svi mogu sudjelovati i doprinijeti istome. Jedina namjena ove aplikacije jest pomoć unesrećenima u potresu na područjima Gline, Siska, Petrinje i okolnih sela i naselja.<br>
+        Aplikacija u funkciji služi kao oglasnik između onih koji nude i potražuju pomoć u unesrećenim područjima. Korištenje aplikacije u potpunosti je besplatno, te oglas može postaviti bilo koji građanin Republike Hrvatske, Europske Unije i susjednih zemalja.<br>
+        Projekt web aplikacije napravljen je u suradnji <%= link_to "više programskih inženjera i stručnjaka", "https://github.com/vlado/earthquake-croatia/graphs/contributors" %>, koji su dobrovoljno sudjelovali u stvaranju, održavanju i nadogradnji ove aplikacije.
+        </p>
+      </div>
+    </footer>
     <script src="https://kit.fontawesome.com/780c490760.js" crossorigin="anonymous"></script>
   </body>
 </html>

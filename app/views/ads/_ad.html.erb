@@ -11,18 +11,9 @@
         <div class="control">
           <div class="tags has-addons">
             <span class="tag">Grad</span>
-            <span class="tag is-info"><%= ad.city %></span>
+            <span class="tag is-info"><%= ad.zip_and_city%></span>
           </div>
         </div>
-
-        <% if ad.zip.present? %>
-          <div class="control">
-            <div class="tags has-addons">
-              <span class="tag">Poštanski broj</span>
-              <span class="tag is-info"><%= ad.zip %></span>
-            </div>
-          </div>
-        <% end %>
 
         <% if ad.address.present? %>
           <div class="control">
@@ -31,21 +22,20 @@
               <span class="tag is-info"><%= ad.address %></span>
             </div>
           </div>
-          <% if ad.maps_query.present? %>
-            <div class="control">
-              <a href="<%= maps_url(ad.maps_query) %>" target="_blank" class="is-block">
-                <div class="tags has-addons">
-                  <span class="tag">Lokacija na karti</span>
-                  <span class="tag is-info">
-                    <span class="icon">
-                      <i class="fas fa-map-marked-alt"></i>
-                    </span>
-                  </span>
-                </div>
-              </a>
-            </div>
-          <% end %>
         <% end %>
+
+        <div class="control">
+          <a href="<%= maps_url(ad.full_address) %>" target="_blank" class="is-block">
+            <div class="tags has-addons">
+              <span class="tag">Lokacija na karti</span>
+              <span class="tag is-info">
+                <span class="icon">
+                  <i class="fas fa-map-marked-alt"></i>
+                </span>
+              </span>
+            </div>
+          </a>
+        </div>
       </div>
 
       <%= simple_format ad.description %>
