@@ -1,8 +1,9 @@
 <%= javascript_tag do %>
 <% end %>
 
-<div>
-  <div class="mb-6">
+<div data-controller="filter">
+  <%= link_to "Filtriraj", "#", class: "button is-block mb-4 is-hidden-tablet", data: { action: "filter#show", "filter-target": "show_button" } %>
+  <div data-filter-target="container" class="mb-5 is-block-tablet">
     <%= form_with url: ads_path, method: :get do |f| %>
       <div class="field is-grouped is-grouped-multiline">
         <div class="control">
