@@ -37,3 +37,4 @@ yarn-debug.log*
 
 # OSX specific
 .DS_Store
+.foreman
