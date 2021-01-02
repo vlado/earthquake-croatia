@@ -48,8 +48,10 @@
       </div>
       <hr>
       <div class="columns" data-controller="clipboard">
-        <div class="column">URL oglasa: <%= link_to ad_url(ad.to_param), ad_url(ad.to_param) %></div>
         <div class="column">
+          <a class="button" href="<%= ad_url(ad.to_param) %>">
+            Otvori oglas
+          </a>
           <button data-clipboard-target="button" class="button" data-clipboard-text="<%= ad_url(ad.to_param) %>">
             Kopiraj poveznicu na oglas
           </button>
