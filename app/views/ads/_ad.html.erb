@@ -10,10 +10,19 @@
 
         <div class="control">
           <div class="tags has-addons">
-            <span class="tag">Adresa</span>
-            <span class="tag is-info"><%= ad.full_address %></span>
+            <span class="tag">Grad</span>
+            <span class="tag is-info"><%= ad.zip_and_city%></span>
           </div>
         </div>
+
+        <% if ad.address.present? %>
+          <div class="control">
+            <div class="tags has-addons">
+              <span class="tag">Adresa</span>
+              <span class="tag is-info"><%= ad.address %></span>
+            </div>
+          </div>
+        <% end %>
 
         <div class="control">
           <a href="<%= maps_url(ad.full_address) %>" target="_blank" class="is-block">

@@ -48,7 +48,10 @@ class Ad < ApplicationRecord
   end
 
   def full_address
-    zip_and_city = [zip, city].select(&:present?).join(" ")
     [address, zip_and_city].select(&:present?).join(", ")
+  end
+
+  def zip_and_city
+    [zip, city].select(&:present?).join(" ")
   end
 end
