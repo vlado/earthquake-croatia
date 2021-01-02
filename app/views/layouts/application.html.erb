@@ -22,11 +22,19 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body data-controller="google-analytics">
+  <body class="has-background-light" data-controller="google-analytics">
+    <section class="hero is-medium is-dark is-bold">
+      <div class="hero-body is-relative">
+        <div class="hero-background"></div>
+        <div class="container">
+          <h1 class="title">Pomozimo žrtvama potresa</h1>
+          <h2 class="subtitle">Petrinja, Sisak, Glina i okolna mjesta</h2>
+          <%= link_to "Dodaj oglas", new_ad_path, class: "button is-white is-medium" %>
+        </div>
+      </div>
+    </section>
     <section class="section">
       <div class="container">
-        <h1 class="title">Pomozimo žrtvama potresa</h1>
-        <h2 class="subtitle">Petrinja, Sisak, Glina i okolna mjesta</h2>
         <%= yield %>
       </div>
     </section>
