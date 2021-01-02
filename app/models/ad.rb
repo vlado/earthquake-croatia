@@ -10,14 +10,16 @@
 #  consent     :boolean
 #  description :text
 #  email       :string
-#  kind        :string
+#  kind        :integer          default("supply"), not null
 #  phone       :string
+#  service     :string           not null
 #  zip         :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
 class Ad < ApplicationRecord
-  KINDS = ["Smještaj", "Prijevoz", "Usluga popravka", "Medicinska pomoć"].freeze
+  KINDS = %w[supply demand].freeze
+  SERVICES = ["Smještaj", "Prijevoz", "Usluga popravka", "Medicinska pomoć"].freeze
 
   validates :city, presence: true
   validates :description, presence: true
@@ -26,25 +28,28 @@ class Ad < ApplicationRecord
   validates :consent, presence: { message: "mora biti odobrena" }
   validates :address, presence: { message: "ne smije biti prazna" }, on: %i[create update]
   validates :email, format: /@/, if: -> { email.present? }
+  validates :service, presence: true, inclusion: { in: SERVICES }
+
+  enum kind: KINDS
 
   def accomodation?
-    kind == "Smještaj"
+    service == "Smještaj"
   end
 
   def transportation?
-    kind == "Prijevoz"
+    service == "Prijevoz"
   end
 
   def repair_service?
-    kind == "Usluga popravka"
+    service == "Usluga popravka"
   end
 
   def medical_help?
-    kind == "Medicinska pomoć"
+    service == "Medicinska pomoć"
   end
 
   def to_param
-    [id, kind.parameterize, city.parameterize].join("-")
+    [id, service.parameterize, city.parameterize].join("-")
   end
 
   def full_address

@@ -1,14 +1,15 @@
-<%= javascript_tag do %>
-<% end %>
+<%= render "kind_tabs" %>
 
 <div data-controller="filter">
   <%= link_to "Filtriraj", "#", class: "button is-block mb-4 is-hidden-tablet", data: { action: "filter#show", "filter-target": "show_button" } %>
   <div data-filter-target="container" class="mb-5 is-block-tablet">
     <%= form_with url: ads_path, method: :get do |f| %>
+      <%= f.hidden_field :kind, value: params[:kind] %>
+
       <div class="field is-grouped is-grouped-multiline">
         <div class="control">
           <div class="select">
-            <%= select_tag :kind, options_for_select(Ad::KINDS, params[:kind]), prompt: "-- Svi tipovi --" %>
+            <%= select_tag :service, options_for_select(Ad::SERVICES, params[:service]), prompt: "-- Sve usluge --" %>
           </div>
         </div>
 
@@ -36,13 +37,13 @@
     <% if params[:city].present? %>
       <span class="tag">
         <%= params[:city] %>
-        <%= link_to "", params.permit(:kind), class: "delete is-small"  %>
+        <%= link_to "", params.permit(:service, :kind), class: "delete is-small"  %>
       </span>
     <% end %>
-    <% if params[:kind].present? %>
+    <% if params[:service].present? %>
       <span class="tag">
-        <%= params[:kind] %>
-        <%= link_to "", params.permit(:city), class: "delete is-small"  %>
+        <%= params[:service] %>
+        <%= link_to "", params.permit(:city, :kind), class: "delete is-small"  %>
       </span>
     <% end %>
   </div>
