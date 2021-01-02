@@ -95,6 +95,9 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
+    inline_svg (1.7.2)
+      activesupport (>= 3.0)
+      nokogiri (>= 1.6)
     invisible_captcha (1.1.0)
       rails (>= 4.2)
     jbuilder (2.10.1)
@@ -261,6 +264,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   ffaker
+  inline_svg
   invisible_captcha
   jbuilder (~> 2.7)
   listen (~> 3.3)
