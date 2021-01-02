@@ -47,7 +47,8 @@ class Ad < ApplicationRecord
     [id, kind.parameterize, city.parameterize].join("-")
   end
 
-  def maps_query
-    [address.gsub(" ", "+"), zip, city].select(&:present?).join(",+")
+  def full_address
+    zip_and_city = [zip, city].select(&:present?).join(" ")
+    [address, zip_and_city].select(&:present?).join(", ")
   end
 end
