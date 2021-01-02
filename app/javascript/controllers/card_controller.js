@@ -1,15 +1,12 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-  static targets = ["content"];
+  static targets = ["content", "chevron"];
 
   // ACTIONS
 
   toggle() {
-    if (this.contentTarget.hidden) {
-      this.contentTarget.hidden = false;
-    } else {
-      this.contentTarget.hidden = true;
-    }
+    this.contentTarget.hidden = !this.contentTarget.hidden;
+    this.chevronTarget.classList.toggle("down");
   }
 }

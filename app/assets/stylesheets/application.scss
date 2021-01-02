@@ -39,3 +39,11 @@ input[type=checkbox].is-danger {
 .card.demand {
   border-left: 4px solid hsl(348, 100%, 61%);
 }
+
+.chevron {
+  transition: all 0.3s ease;
+}
+
+.chevron.down {
+  transform: rotate(90deg);
+}
