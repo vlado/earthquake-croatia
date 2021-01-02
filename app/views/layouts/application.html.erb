@@ -18,7 +18,7 @@
         gtag('config', '<%= Rails.application.credentials.dig(:google_analytics) %>');
       </script>
       <!-- Crisp Chat Support !-->
-  <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="<%= Rails.application.credentials.dig(:crisp_website_id) %>";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
+      <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="<%= Rails.application.credentials.dig(:crisp_website_id) %>";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
     <% end %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
