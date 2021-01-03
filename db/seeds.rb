@@ -11,7 +11,7 @@ number_of_ads = 500
 
 number_of_ads.times do
   ads_data << {
-    city: %w[Slatina Neum Makarska Varaždin Varazdin Bibinje Zagreb Križevci Krizevci].sample,
+    city: %w[Slatina Makarska Zabok].sample,
     zip: rand(10_000..99_000),
     phone: '0' + rand(9_000_00_00..9_999_99_99).to_s,
     description: FFaker::Lorem.paragraph,

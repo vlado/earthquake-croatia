@@ -6,7 +6,6 @@
 #
 #  id          :bigint           not null, primary key
 #  address     :string
-#  city        :string
 #  consent     :boolean
 #  description :text
 #  email       :string
@@ -16,12 +15,22 @@
 #  zip         :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  city_id     :bigint
+#
+# Indexes
+#
+#  index_ads_on_city_id  (city_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (city_id => cities.id)
 #
 class Ad < ApplicationRecord
   KINDS = %w[supply demand].freeze
   SERVICES = ["Smještaj", "Prijevoz", "Usluga popravka", "Medicinska pomoć", "Ostalo"].freeze
 
-  validates :city, presence: true
+  belongs_to :city
+
   validates :description, presence: true
   validates :phone, presence: true, on: %i[create update]
   validates :kind, presence: true, inclusion: { in: KINDS }

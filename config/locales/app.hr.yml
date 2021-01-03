@@ -7,9 +7,10 @@ hr:
   activerecord:
     models:
       ad: Oglas
+      city: Grad
+      county: Županija
     attributes:
       ad:
-        city: Grad
         description: Opis
         kind: Tip oglasa
         phone: Telefon
@@ -17,12 +18,18 @@ hr:
         consent: Privola
         address: Adresa
         service: Usluga
-
+      city:
+        name: Ime
+      county:
+        name: Ime
   helpers:
     label:
       ad:
         address: "Adresa *"
-        city: "Grad *"
         description: "Opis *"
         kind: "Tip oglasa *"
         phone: "Kontakt Telefon *"
+      city:
+        name: "Ime *"
+      county:
+        name: "Ime *"
