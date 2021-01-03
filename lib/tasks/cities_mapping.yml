@@ -152,6 +152,10 @@ cities:
   matulji-rukavac: Rukavac
   imotski- runovici: Runovići
   seline,starigrad-paklenica: Seline
+  sesvete: Sesvete
+  zagreb sesvete: Sesvete
+  zagreb,sesvete: Sesvete
+  zagreb( sesvete): Sesvete
   sisak (caprag): Sisak
   dubravice (skradin): Skradin
   slana, gkinska poljana: Slana
@@ -204,18 +208,14 @@ cities:
   zagreb - vrbovec: Vrbovec
   vrlika, garjak: Vrlika
   zadarska zupanija: Zadarska županija
-  sesvete: Zagreb
   grad zagreb: Zagreb
   n. zagreb: Zagreb
   zaagreb: Zagreb
   zagreb-novi zagreb: Zagreb
   zagreb kašina: Zagreb
   zagreb perjavica: Zagreb
-  zagreb sesvete: Zagreb
-  zagreb,sesvete: Zagreb
   zagreb - dubrava: Zagreb
   zagreb / lucko: Zagreb
-  zagreb( sesvete): Zagreb
   zg: Zagreb
   kupljenovo (uz zaprešić): Zaprešić
   zašrešić: Zaprešić
