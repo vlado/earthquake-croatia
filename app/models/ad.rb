@@ -39,7 +39,7 @@ class Ad < ApplicationRecord
   validates :consent, presence: { message: "mora biti odobrena" }
   validates :address, presence: { message: "ne smije biti prazna" }, on: %i[create update]
   validates :email, format: /@/, if: -> { email.present? }
-  validates :categories, presence: true, inclusion: { in: CATEGORIES }
+  validates :category, presence: true, inclusion: { in: CATEGORIES }
 
   enum category: CATEGORIES
   enum kind: KINDS
