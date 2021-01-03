@@ -17,6 +17,13 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
+# Indexes
+#
+#  index_ads_on_category    (category)
+#  index_ads_on_city        (city)
+#  index_ads_on_created_at  (created_at)
+#  index_ads_on_kind        (kind)
+#
 require "test_helper"
 
 class AdTest < ActiveSupport::TestCase

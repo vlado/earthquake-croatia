@@ -17,6 +17,13 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
+# Indexes
+#
+#  index_ads_on_category    (category)
+#  index_ads_on_city        (city)
+#  index_ads_on_created_at  (created_at)
+#  index_ads_on_kind        (kind)
+#
 class Ad < ApplicationRecord
   CATEGORIES = %w[
     accomodation
@@ -31,6 +38,8 @@ class Ad < ApplicationRecord
     clothes_and_shoes
   ].freeze
   KINDS = %w[supply demand].freeze
+
+  include NormalizeCityName
 
   validates :city, presence: true
   validates :description, presence: true
