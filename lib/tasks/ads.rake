@@ -3,7 +3,7 @@ namespace :ads do
   task normalize_city_names: :environment do
     puts "Normalizing city names..."
 
-    Ad.all.find_each do |ad|
+    Ad.find_each do |ad|
       city = ad.city.squish
       # if it's only one word, make sure it's not ALLCAPS
       city = if city.split(/[^[[:word:]]]+/).size == 1
