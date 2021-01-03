@@ -24,9 +24,10 @@ module NormalizeCityName
 
     def normalize_from_yml
       cities_mapping = YAML.load_file(Rails.root.join("lib/tasks/cities_mapping.yml"))["cities"]
-      return false unless cities_mapping[city]
+      fixed_city_name = cities_mapping[city.downcase]
+      return false if fixed_city_name.blank?
 
-      self.city = cities_mapping[city]
+      self.city = fixed_city_name
       true
     end
 

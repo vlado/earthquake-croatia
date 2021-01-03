@@ -21,16 +21,16 @@
 #  index_ads_on_created_at  (created_at)
 #
 
-one:
-  city: MyString
-  zip: MyString
-  phone: MyString
-  description: MyText
-  email: MyString
+# one:
+#   city: MyString
+#   zip: MyString
+#   phone: MyString
+#   description: MyText
+#   email: MyString
 
-two:
-  city: MyString
-  zip: MyString
-  phone: MyString
-  description: MyText
-  email: MyString
+# two:
+#   city: MyString
+#   zip: MyString
+#   phone: MyString
+#   description: MyText
+#   email: MyString

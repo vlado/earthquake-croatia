@@ -1,24 +1,222 @@
+# this is a partial list of misspelled city names
+# (it would be impossible to have all the possible misspellings)
+# the misspelled city name should be in lowercase as we can then easily match any case user provides
+# for example: BIJElovar would be matched, as well as zagreb or ZAGREB
 cities:
-  Bijelovar: Bjelovar
-  Dakovo: Đakovo
-  Djakovo: Đakovo
-  Fažana Pula: Fažana
-  Ivanić-Grad: Ivanić Grad
-  JANJINA (PELJEŠAC): Janjina (Pelješac)
-  Kaštela (Lukšić): Kaštel Lukšić
-  Korivnica: Koprivnica
-  KRAVARSKO-NOVO BRDO: Kravarsko - Novo Brdo
-  MOSTAR: Mostar
-  MURTER: Murter
-  Osjek: Osijek
+  slovenija, adlešiči: Adlešiči
+  sveti ivan zelina, beloslavec: Beloslavec
+  baska: Baška
+  baska voda: Baška voda
+  baška voda: Baška voda
+  beli manastir: Beli Manastir
+  31551 belišće: Belišće
+  biograd na moru: Biograd na Moru
+  bijelovar: Bjelovar
+  bogdanovci kod vukovara: Bogdanovci
+  vukovar (bogdanovci): Bogdanovci
+  vukovar - bogdanovci: Bogdanovci
+  bosnjaci: Bošnjaci
+  branjina, popovac: Branjina
+  mijesto brckovljani: Brckovljani
+  novi vinodolski - bribir: Bribir
+  zadar (briševo): Briševo
+  korčula - brna: Brna
+  brnaze, sinj: Brnaze
+  imotski , cista velika: Cista Velika
+  tršće,čabar gorski kotar: Čabar
+  čađavački lug / slatina: Čađavački Lug
+  čakovec: Čakovec
+  cakovec: Čakovec
+  čavle-cernik 13(okolica rijeke): Čavle
+  čiovo - trogir: Čiovo
+  vodice, čista velika: Čista Velika
+  daruvsr: Daruvar
+  slavonski brod (donja bebrina): Donja Bebrina
+  biograd na moru,donje raštane: Donje Raštane
+  draganic: Draganić
+  drenovci, županja: Drenovci
+  koprivnica - drnje: Drnje
+  drvenik (kraj makarske): Drvenik
+  duboševica baranja: Duboševica
+  dugi rat(omiš): Dugi Rat
+  dugo selo: Dugo Selo
+  fažana pula: Fažana
+  dakovo: Đakovo
+  djakovo: Đakovo
+  fazana: Fažana
+  fažana pula: Fažana
+  galovac, zadar: Galovac
+  garesnica: Garešnica
+  gata/omis: Gata
+  glinska poljana, vratečko, slana: Glinska Poljana
+  gorica (zadar): Gorica
+  gornja hlapa, dobrinj, otok krk: Gornja Hlapa
+  slavonski brod/gornja vrba: Gornja Vrba
+  gornji karin(okolica zadra): Gornji Karin
+  gospic: Gospić
+  gospić: Gospić
+  ivanićko-graberje: Graberje Ivanićko
+  gracac (skradin): Gračac
+  gracac -skradin: Gračac
+  gradec-vrbovec: Gradec
+  grubine- imotski: Grubine
+  vukovar, ilača: Ilača
+  posedarje - islam latinski: Islam Latinski
+  jelsa/ ivan dolac: Ivan Dolac
+  ivanić-grad: Ivanić Grad
+  ivanic-grad: Ivanić Grad
+  ivankovo (vinkovci): Ivankovo
+  janjina (pelješac): Janjina
+  jaruge, slavonski brod: Jaruge
+  jesenice(omiš): Jesenice
+  kastel luksic: Kaštel Lukšić
+  kaštela (lukšić): Kaštel Lukšić
+  kapelscak: Kapelščak
+  marčana kavran: Kavran
+  klostar ivanic: Kloštar Ivanić
+  kopacevo: Kopačevo
+  knezevi vinogradi: Kneževi Vinogradi
+  velika gorica (kobilić): Kobilić
+  komin neretva: Komin
+  osijek(kopačevo): Kopačevo
+  korivnica: Koprivnica
+  košutarica ,44324 jasenovac: Košutarica
+  kravarsko-novo brdo: Kravarsko - Novo Brdo
+  ladimirevci, valpovo: Ladimirevci
+  našice-lađanska: Lađanska
+  laslovo/osijek: Laslovo
+  ledenice, novi vinodolski: Ledenice
+  linardići, krk: Linardići
+  lisac,ston: Lisac
+  medulin/loborika: Loborika
+  luzani: Lužani
+  mali losinj: Mali Lošinj
+  mandre, otok pag: Mandre
+  marcana(pula): Marčana
+  marina-trogir: Marina
+  marusevec: Maruševec
+  matulji / opatija: Matulji
+  milna! otok brac: Milna
+  mostar: Mostar
+  mošćenička draga: Mošćenička Draga
+  mursko sredisce: Mursko Središće
+  mursko središče: Mursko Središće
+  murter: Murter
+  neorić-sutina (split): Neorić-Sutina
+  nin, žerava: Nin
+  nova gradiska: Nova Gradiška
+  novigrad/paljuv: Novigrad
+  novigrad (zadarski): Novigrad
+  novigrad, zadar: Novigrad
+  okrug gornji, ciovo: Okrug Gornji
+  omis: Omiš
   ---orebić: Orebić
-  Podstrana , Split: Podstrana
-  Podstrana Split: Podstrana
-  SPLITSKA OTOK BRAČ: Splitska otok Brač
-  Varazdinu: Varaždin
-  Zaagreb: Zagreb
-  Grad Zagreb: Zagreb
-  ZAGREB( SESVETE): Sesvete
-  Vodice, ČISTA VELIKA: Vodice, Čista Velika
-  Zašrešić: Zaprešić
-  Jesenice(Omiš): Jesenice (Omiš)
+  orebic: Orebić
+  osjek: Osijek
+  otok pasman kod zadra: Otok Pašman
+  otok pasman kraj zadra: Otok Pašman
+  otok vir: Otok Vir
+  pakostane: Pakoštane
+  palešnik (garešnica): Palešnik
+  palešnik - garešnica: Palešnik
+  vodnjan~peroj: Peroj
+  petrinja i okolica: Petrinja
+  petrinja i okolna mjesta: Petrinja
+  petrovci kraj vukovara: Petrovci
+  plitvice: Plitvička Jezera
+  plitvicka jezera: Plitvička Jezera
+  ploce: Ploče
+  podaca - makarska rivijera: Podaca
+  omiš,podašpilje: Podašpilje
+  slavonski brod (podcrkavlje): Podcrkavlje
+  podstrana , split: Podstrana
+  podstrana split: Podstrana
+  podstrana(kraj splita): Podstrana
+  porec: Poreč
+  povlja otok brac: Povlja
+  povljana(pag): Povljana
+  zadar preko- poljana: Preko, Poljana
+  preko,poljana: Preko, Poljana
+  prezid, gorski kotar: Prezid
+  primosten: Primošten
+  krk, punat: Punat
+  račišće 109: Račišće
+  varaždin, radovec: Radovec
+  ražanj-rogoznica: Ražanj
+  bjelovar,ribnjacka: Ribnjačka
+  rogoznica /šibenik: Rogoznica
+  šibenik, rogoznica: Rogoznica
+  rovinj j(rovigno): Rovinj
+  rukavac-matulji: Rukavac
+  dugo selo, rugvica: Rugvica
+  matulji-rukavac: Rukavac
+  imotski- runovici: Runovići
+  seline,starigrad-paklenica: Seline
+  sisak (caprag): Sisak
+  dubravice (skradin): Skradin
+  slana, gkinska poljana: Slana
+  slatina, gornji miholjac: Slatina
+  soljani, vukovarsko-srijemska: Soljani
+  split/split: Split
+  splitska otok brač: Splitska
+  vodice srima: Srima
+  stari jankovci/vinkovci: Stari Jankovci
+  stara gradiska: Stara Gradiška
+  starigrad paklenica: Starigrad
+  starigrad,paklenica: Starigrad
+  starigrad-paklenica: Starigrad
+  staro petrovo selo, ljudevita posavskog 1: Staro Petrovo Selo
+  staro petrovo selo: Staro Petrovo Selo
+  stobrec: Stobreč
+  zadar( sukošan ): Sukošan
+  sukošan (zadar): Sukošan
+  sukošan-zadar: Sukošan
+  supetar, brac: Supetar
+  sutivan, brač: Sutivan
+  zadar, sv.filip i jakov: Sveti Filip i Jakov
+  sveti križ začretje: Sveti Križ Začretje
+  sveti martin na muri: Sveti Martin na Muri
+  sveti petar na moru: Sveti Petar na Moru
+  svirče hvar: Svirče
+  šegotići, marčana, pula: Šegotići
+  sibenik: Šibenik
+  šibe nik: Šibenik
+  šilo (krk): Šilo
+  širitovci/drniš: Širitovci
+  škrip (otok brač): Škrip
+  šmrika: Šmrika
+  spisic bukovica (virovitica): Špišić Bukovica
+  trpanj pelješac: Trpanj
+  tucepi: Tučepi
+  varadin: Varaždin
+  varazdin: Varaždin
+  varazdinu: Varaždin
+  veli losinj: Veli Lošinj
+  velika gorica: Velika Gorica
+  veliki grđevac / bjelovarsko-bilogorska: Veliki Grđevac
+  vinkovci (sopot): Vinkovci
+  vivodina, ozalj: Vivodina
+  vodnjan(dignano): Vodnjan
+  vozilici: Vozilići
+  vratišinec-međimurje: Vratišinec
+  vrbanja(županja): Vrbanja
+  vrbanja,hrvatska: Vrbanja
+  zagreb - vrbovec: Vrbovec
+  vrlika, garjak: Vrlika
+  zadarska zupanija: Zadarska županija
+  grad zagreb: Zagreb
+  n. zagreb: Zagreb
+  zaagreb: Zagreb
+  zagreb-novi zagreb: Zagreb
+  zagreb kašina: Zagreb
+  zagreb perjavica: Zagreb
+  zagreb sesvete: Zagreb
+  zagreb,sesvete: Zagreb
+  zagreb - dubrava: Zagreb
+  zagreb / lucko: Zagreb
+  zagreb( sesvete): Zagreb
+  zg: Zagreb
+  kupljenovo (uz zaprešić): Zaprešić
+  zašrešić: Zaprešić
+  zemunik donji (zadar): Zemunik Donji
+  ždrelac (otok pašman): Ždrelac
