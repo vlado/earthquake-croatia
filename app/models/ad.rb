@@ -19,8 +19,10 @@
 #
 # Indexes
 #
+#  index_ads_on_category    (category)
 #  index_ads_on_city        (city)
 #  index_ads_on_created_at  (created_at)
+#  index_ads_on_kind        (kind)
 #
 class Ad < ApplicationRecord
   CATEGORIES = %w[
