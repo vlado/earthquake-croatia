@@ -34,7 +34,7 @@ module AdsHelper
     mapping = {
       "accomodation" => "is-success",
       "transport" => "is-info",
-      "building_materiaAl" => "is-dark",
+      "building_material" => "is-dark",
       "kids" => "is-primary",
       "diet_and_hygiene" => "is-link",
       "furniture_and_household" => "is-dark",

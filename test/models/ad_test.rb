@@ -6,7 +6,7 @@
 #
 #  id          :bigint           not null, primary key
 #  address     :string
-#  category    :integer          default(0), not null
+#  category    :integer          default("accomodation"), not null
 #  city        :string
 #  consent     :boolean
 #  description :text

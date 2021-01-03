@@ -6,7 +6,7 @@
 #
 #  id          :bigint           not null, primary key
 #  address     :string
-#  category    :integer          default(0), not null
+#  category    :integer          default("accomodation"), not null
 #  city        :string
 #  consent     :boolean
 #  description :text
@@ -45,7 +45,8 @@ class Ad < ApplicationRecord
   enum kind: KINDS
 
   def to_param
-    [id, category.parameterize, city.parameterize].join("-")
+    hr_category = I18n.t("ad.categories.#{category}")
+    [id, hr_category.parameterize, city.parameterize].join("-")
   end
 
   def full_address
