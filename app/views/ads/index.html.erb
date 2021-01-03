@@ -49,6 +49,9 @@
   </div>
 <% end %>
 
-<%= render @ads %>
+<div class="tile is-ancestor is-flex-wrap-wrap">
+  <%= render @ads %>
+</div>
+
 
 <%= will_paginate @ads, renderer: BulmaPagination::Rails, class: 'is-centered', previous_label: "&larr;", next_label: "&rarr;", inner_window: 1, outer_window: 0 %>

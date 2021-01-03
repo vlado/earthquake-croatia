@@ -2,7 +2,7 @@
 
 module ApplicationHelper
   def tel_to(phone)
-    link_to(phone, "tel:#{phone}")
+    link_to(phone, "tel:#{phone}", class: "has-text-black")
   end
 
   def class_if(klass, boolean = false)

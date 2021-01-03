@@ -45,7 +45,7 @@ module AdsHelper
     }
 
     color_class = mapping.fetch(ad.category, "is-white")
-    tag.span(t("ad.categories.#{ad.category}"), class: "tag #{color_class}")
+    tag.span(t("ad.categories.#{ad.category}"), class: "tag is-medium #{color_class}")
   end
 
   def maps_url(location)

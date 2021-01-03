@@ -1,61 +1,75 @@
-<div class="card mb-5 <%= ad.kind %>">
-  <div class="card-content">
-    <div class="content">
-      <div class="field is-grouped is-grouped-multiline">
-        <div class="control">
-          <div class="tags has-addons">
-            <%= category_tag ad %>
-          </div>
+<div class="tile is-parent mb-2 is-6">
+  <div class="tile is-child card is-flex is-flex-direction-column">
+    <div class="card-content" data-controller="card-dropdown">
+
+      <div class="is-flex is-justify-content-space-between">
+        <div class="mb-4 is-uppercase is-size-7">
+          <%= category_tag ad %>
         </div>
 
-        <div class="control">
-          <div class="tags has-addons">
-            <span class="tag">Grad</span>
-            <span class="tag is-info"><%= ad.zip_and_city%></span>
+        <div class="dropdown is-right" data-card-dropdown-target="dropdown">
+          <div class="dropdown-trigger">
+            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu-card-actions" data-action="card-dropdown#toggle">
+              <span class="icon">
+                <%= inline_svg_tag('dots-vertical.svg', aria: true) %>
+              </span>
+            </button>
+          </div>
+          <div class="dropdown-menu" id="dropdown-menu-card-actions" role="menu">
+            <div class="dropdown-content" data-controller="clipboard">
+              <a href="<%= ad_path(ad.to_param) %>" class="dropdown-item is-flex is-align-items-center">
+                <span class="icon is-small mr-2">
+                  <%= inline_svg_tag('link.svg', aria: true) %>
+                </span>
+                Otvori oglas
+              </a>
+              <a class="dropdown-item is-flex is-align-items-center" data-clipboard-target="button" data-clipboard-text="<%= ad_url(ad.to_param) %>">
+                <span class="icon is-small mr-2">
+                  <%= inline_svg_tag('clipboard.svg', aria: true) %>
+                </span>
+                Kopiraj poveznicu
+              </a>
+            </div>
           </div>
         </div>
+      </div>
+
+      <div class="content">
+        <h3 class="is-size-5"><%= ad.zip_and_city %></h3>
+
+        <%= simple_format ad.description %>
 
         <% if ad.address.present? %>
-          <div class="control">
-            <div class="tags has-addons">
-              <span class="tag">Adresa</span>
-              <span class="tag is-info"><%= ad.address %></span>
+          <div>
+            <div class="is-flex">
+              <span class="icon mr-2">
+                <%= inline_svg_tag('location.svg', aria: true) %>
+              </span>
+              <%= ad.address %>
+            </div>
+
+            <div class="mt-2">
+              <a href="<%= maps_url(ad.full_address) %>" target="_blank" class="is-flex">
+                <span class="icon mr-2">
+                  <%= inline_svg_tag('map.svg', aria: true) %>
+                </span>
+                Lokacija na karti
+              </a>
             </div>
           </div>
         <% end %>
 
-        <div class="control">
-          <a href="<%= maps_url(ad.full_address) %>" target="_blank" class="is-block">
-            <div class="tags has-addons">
-              <span class="tag">Lokacija na karti</span>
-              <span class="tag is-info">
-                <span class="icon is-small">
-                  <%= inline_svg_tag('map.svg', aria: true) %>
-                </span>
-              </span>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <%= simple_format ad.description %>
-
-      <hr>
-
-      <div class="columns">
-        <div class="column">Telefon: <b><%= tel_to ad.phone %></b></div>
-        <div class="column">Objavljeno: <b>prije <%= time_ago_in_words ad.created_at %></b></div>
-      </div>
-      <hr>
-      <div class="columns" data-controller="clipboard">
-        <div class="column">
-          <%= link_to "Otvori oglas", ad_path(ad.to_param), class: "button" %>
-          </a>
-          <button data-clipboard-target="button" class="button" data-clipboard-text="<%= ad_url(ad.to_param) %>">
-            Kopiraj poveznicu na oglas
-          </button>
-        </div>
+        <p class="has-text-right is-size-7"><strong>Objavljeno</strong>: prije <%= time_ago_in_words ad.created_at %></p>
       </div>
     </div>
+
+    <footer class="card-footer has-background-white-ter mt-auto">
+      <div class="card-footer-item">
+        <span class="icon mr-2">
+          <%= inline_svg_tag('phone.svg', aria: true) %>
+        </span>
+        <strong><%= tel_to ad.phone %></strong>
+      </div>
+    </footer>
   </div>
 </div>
