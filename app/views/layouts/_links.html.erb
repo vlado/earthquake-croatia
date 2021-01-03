@@ -1,15 +1,15 @@
 <div id="external-links" class="card mb-6" data-controller="card">
-  <header class="card-header">
-    <p class="card-header-title">
+  <a href="javascript:void(0)" class="card-header" data-action="card#toggle" aria-label="hide links">
+    <span class="card-header-title">
       Vanjske poveznice s popisima ponude smještaja i prijevoza
-    </p>
-    <a href="javascript:void(0)" class="card-header-icon" aria-label="hide links" data-action="card#toggle">
+    </span>
+    <span class="card-header-icon">
       <span class="icon chevron" data-card-target="chevron">
         <%= inline_svg_tag('chevron-right.svg', aria: true) %>
       </span>
-    </a>
-  </header>
-  <div class="card-content" data-card-target="content" hidden="true">
+    </span>
+  </a>
+  <div class="card-content" data-card-target="content" hidden>
     <div class="content">
       <ul>
         <li><a href="https://docs.google.com/document/d/15kSw0O1jtZYTeLh3jZg2XeGFbNbavIBsA0u_PvK8YRs/mobilebasic"  target="_blank">
