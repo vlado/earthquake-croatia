@@ -42,7 +42,7 @@
     <% end %>
     <% if params[:category].present? %>
       <span class="tag">
-        <%= params[:category] %>
+        <%= t("ad.categories.#{params[:category]}") %>
         <%= link_to "", params.permit(:city, :kind), class: "delete is-small"  %>
       </span>
     <% end %>

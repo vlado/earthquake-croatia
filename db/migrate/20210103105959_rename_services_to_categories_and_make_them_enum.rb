@@ -11,7 +11,7 @@ class RenameServicesToCategoriesAndMakeThemEnum < ActiveRecord::Migration[6.1]
 
   def up
     add_column :ads, :category, :integer, null: false, default: 0
-    Ad.all.each do |ad|
+    Ad.all.find_each do |ad|
       ad.update!(category: CATEGORIES.fetch(ad.service))
     end
     remove_column :ads, :service
@@ -19,7 +19,7 @@ class RenameServicesToCategoriesAndMakeThemEnum < ActiveRecord::Migration[6.1]
 
   def down
     add_column :ads, :service, :string
-    Ad.all.each do |ad|
+    Ad.all.find_each do |ad|
       ad.update!(service: CATEGORIES.invert.fetch(ad.category, "Smještaj"))
     end
     remove_column :ads, :category
