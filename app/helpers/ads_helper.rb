@@ -44,7 +44,7 @@ module AdsHelper
       "other" => "is-light",
     }
 
-    color_class = mapping.fetch(ad.category) { "is-white" }
+    color_class = mapping.fetch(ad.category, "is-white")
     tag.span(t("ad.categories.#{ad.category}"), class: "tag #{color_class}")
   end
 
