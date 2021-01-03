@@ -9,7 +9,7 @@
       <div class="field is-grouped is-grouped-multiline">
         <div class="control">
           <div class="select">
-            <%= select_tag :service, options_for_select(Ad::SERVICES, params[:service]), prompt: "-- Sve usluge --" %>
+            <%= select_tag :category, options_for_select(categories_for_select, params[:category]), prompt: "-- Sve usluge --" %>
           </div>
         </div>
 
@@ -37,12 +37,12 @@
     <% if params[:city].present? %>
       <span class="tag">
         <%= params[:city] %>
-        <%= link_to "", params.permit(:service, :kind), class: "delete is-small"  %>
+        <%= link_to "", params.permit(:category, :kind), class: "delete is-small"  %>
       </span>
     <% end %>
-    <% if params[:service].present? %>
+    <% if params[:category].present? %>
       <span class="tag">
-        <%= params[:service] %>
+        <%= params[:category] %>
         <%= link_to "", params.permit(:city, :kind), class: "delete is-small"  %>
       </span>
     <% end %>

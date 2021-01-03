@@ -33,10 +33,10 @@
   </div>
 
   <div class="field">
-    <%= f.label :service, class: "label" %>
+    <%= f.label :category, class: "label" %>
     <div class="control">
       <div class="select">
-        <%= f.select :service, Ad::SERVICES %>
+        <%= f.select :category, categories_for_select %>
       </div>
     </div>
   </div>
