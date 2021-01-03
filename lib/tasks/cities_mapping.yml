@@ -3,7 +3,7 @@
 # the misspelled city name should be in lowercase as we can then easily match any case user provides
 # for example: BIJElovar would be matched, as well as zagreb or ZAGREB
 cities:
-  slovenija, adlešiči: Adlešiči
+  slovenija, adlešiči: Adlešiči, Slovenija
   sveti ivan zelina, beloslavec: Beloslavec
   baska: Baška
   baska voda: Baška voda
