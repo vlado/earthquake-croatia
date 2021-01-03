@@ -18,7 +18,8 @@ number_of_ads.times do
     email: rand(0..number_of_ads) < 40 ? FFaker::Internet.email : nil, # 40% chance ad has email
     kind: Ad::KINDS.sample,
     consent: true,
-    address: FFaker::Address.street_name
+    address: FFaker::Address.street_name,
+    service: Ad::SERVICES[rand(Ad::SERVICES.count-1)]
   }
 end
 
