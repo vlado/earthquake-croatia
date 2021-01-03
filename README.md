@@ -82,7 +82,6 @@ bundle install
 # Initialize and migrate database
 rails db:create
 rails db:migrate
-rails db:seed_locations
 
 # Install webpack
 rails webpacker:install
