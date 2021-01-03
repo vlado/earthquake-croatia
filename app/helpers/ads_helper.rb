@@ -24,6 +24,8 @@ module AdsHelper
                     "is-warning"
                   elsif ad.medical_help?
                     "is-danger"
+                  elsif ad.other?
+                    "is-light"
                   else
                     "is-white"
                   end

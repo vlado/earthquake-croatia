@@ -19,7 +19,7 @@
 #
 class Ad < ApplicationRecord
   KINDS = %w[supply demand].freeze
-  SERVICES = ["Smještaj", "Prijevoz", "Usluga popravka", "Medicinska pomoć"].freeze
+  SERVICES = ["Smještaj", "Prijevoz", "Usluga popravka", "Medicinska pomoć", "Ostalo"].freeze
 
   validates :city, presence: true
   validates :description, presence: true
@@ -46,6 +46,10 @@ class Ad < ApplicationRecord
 
   def medical_help?
     service == "Medicinska pomoć"
+  end
+
+  def other?
+    service == "Ostalo"
   end
 
   def to_param
