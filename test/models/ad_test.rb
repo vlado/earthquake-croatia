@@ -6,13 +6,13 @@
 #
 #  id          :bigint           not null, primary key
 #  address     :string
+#  category    :integer          default("accomodation"), not null
 #  city        :string
 #  consent     :boolean
 #  description :text
 #  email       :string
 #  kind        :integer          default("supply"), not null
 #  phone       :string
-#  service     :string           not null
 #  zip         :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null

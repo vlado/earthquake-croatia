@@ -8,29 +8,44 @@ module AdsHelper
   end
 
   def filtered?
-    params[:service].present? || params[:city].present?
+    params[:category].present? || params[:city].present?
+  end
+
+  def categories_for_select
+    %w[
+      accomodation
+      transport
+      building_material
+      kids
+      diet_and_hygiene
+      furniture_and_household
+      clothes_and_shoes
+      repairs
+      medical_assistance
+      other
+    ].map { |key| [t("ad.categories.#{key}"), key] }
   end
 
   def kinds_for_select
-    Ad.kinds.keys.map { |key| [I18n.t("ad.kinds.#{key}"), key] }
+    Ad.kinds.keys.map { |key| [t("ad.kinds.#{key}"), key] }
   end
 
-  def service_tag(ad)
-    color_class = if ad.accomodation?
-                    "is-success"
-                  elsif ad.transportation?
-                    "is-info"
-                  elsif ad.repair_service?
-                    "is-warning"
-                  elsif ad.medical_help?
-                    "is-danger"
-                  elsif ad.other?
-                    "is-light"
-                  else
-                    "is-white"
-                  end
+  def category_tag(ad)
+    mapping = {
+      "accomodation" => "is-success",
+      "transport" => "is-info",
+      "building_material" => "is-dark",
+      "kids" => "is-primary",
+      "diet_and_hygiene" => "is-link",
+      "furniture_and_household" => "is-dark",
+      "clothes_and_shoes" => "is-black",
+      "repairs" => "is-warning",
+      "medical_assistance" => "is-danger",
+      "other" => "is-light",
+    }
 
-    tag.span(ad.service, class: "tag #{color_class}")
+    color_class = mapping.fetch(ad.category, "is-white")
+    tag.span(t("ad.categories.#{ad.category}"), class: "tag #{color_class}")
   end
 
   def maps_url(location)
