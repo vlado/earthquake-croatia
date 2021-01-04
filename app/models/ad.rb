@@ -70,6 +70,6 @@ class Ad < ApplicationRecord
   end
 
   def zip_and_city
-    [zip, city].select(&:present?).join(" ")
+    city.to_s
   end
 end

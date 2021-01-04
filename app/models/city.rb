@@ -20,4 +20,8 @@
 #
 class City < ApplicationRecord
   belongs_to :county
+
+  def to_s
+    [zip_code, name].join(" ")
+  end
 end
