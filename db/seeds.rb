@@ -19,7 +19,7 @@ number_of_ads.times do
     kind: Ad::KINDS.sample,
     consent: true,
     address: FFaker::Address.street_name,
-    service: Ad::SERVICES[rand(Ad::SERVICES.count-1)]
+    category: Ad::CATEGORIES.sample
   }
 end
 

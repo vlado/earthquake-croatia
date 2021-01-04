@@ -4,12 +4,12 @@
 #
 #  id          :bigint           not null, primary key
 #  address     :string
+#  category    :integer          default("accomodation"), not null
 #  consent     :boolean
 #  description :text
 #  email       :string
 #  kind        :integer          default("supply"), not null
 #  phone       :string
-#  service     :string           not null
 #  zip         :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
@@ -23,15 +23,24 @@
 #
 #  fk_rails_...  (city_id => cities.id)
 #
+# Indexes
+#
+#  index_ads_on_category    (category)
+#  index_ads_on_city        (city)
+#  index_ads_on_created_at  (created_at)
+#  index_ads_on_kind        (kind)
+#
 
-one:
-  zip: MyString
-  phone: MyString
-  description: MyText
-  email: MyString
+# one:
+#   city: MyString
+#   zip: MyString
+#   phone: MyString
+#   description: MyText
+#   email: MyString
 
-two:
-  zip: MyString
-  phone: MyString
-  description: MyText
-  email: MyString
+# two:
+#   city: MyString
+#   zip: MyString
+#   phone: MyString
+#   description: MyText
+#   email: MyString

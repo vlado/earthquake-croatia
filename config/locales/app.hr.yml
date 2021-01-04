@@ -1,5 +1,16 @@
 hr:
   ad:
+    categories:
+      accomodation: Smještaj
+      building_material: Građevinski materijal
+      clothes_and_shoes: Obuća i odjeća
+      diet_and_hygiene: Prehrana i higijena
+      furniture_and_household: Namještaj i kućne potrebštine
+      kids: Dječja oprema
+      medical_assistance: Medicinska pomoć
+      other: Ostalo
+      repairs: Usluga popravaka
+      transport: Prijevoz
     kinds:
       demand: Tražim pomoć
       supply: Nudim pomoć
@@ -17,7 +28,7 @@ hr:
         zip: Poštanski broj
         consent: Privola
         address: Adresa
-        service: Usluga
+        category: Usluga
       city:
         name: Ime
       county:

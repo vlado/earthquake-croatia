@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_03_181832) do
+ActiveRecord::Schema.define(version: 2021_01_03_235304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "unaccent"
 
   create_table "ads", force: :cascade do |t|
     t.string "zip"
@@ -24,10 +25,13 @@ ActiveRecord::Schema.define(version: 2021_01_03_181832) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "consent"
     t.string "address"
-    t.string "service", null: false
     t.integer "kind", default: 0, null: false
     t.bigint "city_id"
     t.index ["city_id"], name: "index_ads_on_city_id"
+    t.integer "category", default: 0, null: false
+    t.index ["category"], name: "index_ads_on_category"
+    t.index ["created_at"], name: "index_ads_on_created_at"
+    t.index ["kind"], name: "index_ads_on_kind"
   end
 
   create_table "cities", force: :cascade do |t|
