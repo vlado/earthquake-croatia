@@ -26,10 +26,10 @@ ActiveRecord::Schema.define(version: 2021_01_03_235304) do
     t.boolean "consent"
     t.string "address"
     t.integer "kind", default: 0, null: false
-    t.bigint "city_id"
-    t.index ["city_id"], name: "index_ads_on_city_id"
     t.integer "category", default: 0, null: false
+    t.bigint "city_id", null: false
     t.index ["category"], name: "index_ads_on_category"
+    t.index ["city_id"], name: "index_ads_on_city_id"
     t.index ["created_at"], name: "index_ads_on_created_at"
     t.index ["kind"], name: "index_ads_on_kind"
   end
