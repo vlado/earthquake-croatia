@@ -17,7 +17,7 @@ namespace :db do
 
   def locations_hash_from_csv
     {}.tap do |location_hash|
-      CSV.foreach(CSV_SEED_LOCATION, encoding: 'ISO-8859-2', headers: true) do |location|
+      CSV.foreach(CSV_SEED_LOCATION, encoding: 'UTF-8',col_sep: ';', headers: true) do |location|
         location_hash[location["Zupanija"]] ||= []
         location_hash[location["Zupanija"]] << {
           name: location["Naselje"],
