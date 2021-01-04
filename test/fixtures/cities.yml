@@ -3,7 +3,9 @@
 # Table name: cities
 #
 #  id         :bigint           not null, primary key
+#  area_name  :string
 #  name       :string
+#  zip_code   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  county_id  :bigint

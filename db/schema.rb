@@ -31,8 +31,10 @@ ActiveRecord::Schema.define(version: 2021_01_03_181832) do
   end
 
   create_table "cities", force: :cascade do |t|
-    t.string "name"
+    t.string "area_name"
     t.bigint "county_id"
+    t.string "name"
+    t.integer "zip_code"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["county_id"], name: "index_cities_on_county_id"
