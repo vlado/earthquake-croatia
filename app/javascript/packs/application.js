@@ -18,6 +18,7 @@ Turbolinks.start();
 
 import "controllers";
 
-window.addEventListener('DOMContentLoaded', () => {
-  $('#city_id').select2();
+document.addEventListener("turbolinks:load", function() {
+  $('.select2-container').remove() //remove the select2 container DOM
+  $('#city_id, #ad_city_id').select2();$ // Select2 will just reinit the DOM
 })

@@ -7,7 +7,7 @@ class AdsController < ApplicationController
   def index
     @ads = Ad.where(kind: ad_kind).order(created_at: :desc).paginate(page: params[:page], per_page: 20)
     @ads = @ads.where(service: params[:service]) if params[:service].present?
-    @ads = @ads.where(city: params[:city]) if params[:city].present?
+    @ads = @ads.where(city_id: params[:city_id]) if params[:city_id].present?
   end
   # rubocop:enable Metrics/AbcSize
 
@@ -31,7 +31,7 @@ class AdsController < ApplicationController
   private
 
   def ad_params
-    params.require(:ad).permit(:kind, :city, :description, :email, :phone, :zip, :consent, :address, :service)
+    params.require(:ad).permit(:kind, :city_id, :description, :email, :phone, :zip, :consent, :address, :service)
   end
 
   def ad_kind
