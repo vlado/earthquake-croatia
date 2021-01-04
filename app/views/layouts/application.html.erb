@@ -34,18 +34,20 @@
       </div>
     </section>
     <section class="section">
-      <div class="container">
+      <div class="container is-max-desktop">
         <%= render 'layouts/links' %>
         <%= yield %>
       </div>
     </section>
     <footer class="footer">
-      <div class="content has-text-centered">
-        <p>
-        Ova je aplikacija humanitarni projekt otvorenog tipa gdje svi mogu sudjelovati i doprinijeti istome. Jedina namjena ove aplikacije jest pomoć unesrećenima u potresu na područjima Gline, Siska, Petrinje i okolnih sela i naselja.<br>
-        Aplikacija u funkciji služi kao oglasnik između onih koji nude i potražuju pomoć u unesrećenim područjima. Korištenje aplikacije u potpunosti je besplatno, te oglas može postaviti bilo koji građanin Republike Hrvatske, Europske Unije i susjednih zemalja.<br>
-        Projekt web aplikacije napravljen je u suradnji <%= link_to "više programskih inženjera i stručnjaka", "https://github.com/vlado/earthquake-croatia/graphs/contributors" %>, koji su dobrovoljno sudjelovali u stvaranju, održavanju i nadogradnji ove aplikacije.
-        </p>
+      <div class="container is-max-desktop">
+        <div class="content has-text-centered">
+          <p>
+          Ova je aplikacija humanitarni projekt otvorenog tipa gdje svi mogu sudjelovati i doprinijeti istome. Jedina namjena ove aplikacije jest pomoć unesrećenima u potresu na područjima Gline, Siska, Petrinje i okolnih sela i naselja.<br>
+          Aplikacija u funkciji služi kao oglasnik između onih koji nude i potražuju pomoć u unesrećenim područjima. Korištenje aplikacije u potpunosti je besplatno, te oglas može postaviti bilo koji građanin Republike Hrvatske, Europske Unije i susjednih zemalja.<br>
+          Projekt web aplikacije napravljen je u suradnji <%= link_to "više programskih inženjera i stručnjaka", "https://github.com/vlado/earthquake-croatia/graphs/contributors" %>, koji su dobrovoljno sudjelovali u stvaranju, održavanju i nadogradnji ove aplikacije.
+          </p>
+        </div>
       </div>
     </footer>
   </body>
