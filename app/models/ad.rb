@@ -44,11 +44,11 @@ class Ad < ApplicationRecord
   validates :city, presence: true
   validates :description, presence: true
   validates :phone, presence: true, on: %i[create update]
-  validates :kind, presence: true, inclusion: { in: KINDS }
+  validates :kind, inclusion: { in: KINDS }
   validates :consent, presence: { message: "mora biti odobrena" }
   validates :address, presence: { message: "ne smije biti prazna" }, on: %i[create update]
   validates :email, format: /@/, if: -> { email.present? }
-  validates :category, presence: true, inclusion: { in: CATEGORIES }
+  validates :category, inclusion: { in: CATEGORIES }
 
   enum category: CATEGORIES
   enum kind: KINDS
