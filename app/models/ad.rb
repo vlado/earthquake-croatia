@@ -62,7 +62,7 @@ class Ad < ApplicationRecord
   end
 
   def to_param
-    [id, service.parameterize, city.parameterize].join("-")
+    [id, service.parameterize, city.name].join("-")
   end
 
   def full_address

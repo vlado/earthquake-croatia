@@ -48,10 +48,10 @@
     </div>
   </div>
 
-  <div class="field">
+  <div class="control">
     <%= f.label :city, class: "label" %>
-    <div class="control">
-      <%= f.text_field :city, class: "input", required: true %>
+    <div class="select">
+      <%= select_tag :city_id, options_for_select(City.pluck(:name, :id), params[:city]), prompt: "-- Svi gradovi --" %>
     </div>
   </div>
 

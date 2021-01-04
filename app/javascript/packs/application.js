@@ -5,6 +5,10 @@
 
 import Rails from "@rails/ujs";
 import Turbolinks from "turbolinks";
+import $ from 'jquery'
+import 'select2'
+import 'select2/dist/css/select2.css'
+
 // import * as ActiveStorage from "@rails/activestorage"
 // import "channels"
 
@@ -13,3 +17,7 @@ Turbolinks.start();
 // ActiveStorage.start()
 
 import "controllers";
+
+window.addEventListener('DOMContentLoaded', () => {
+  $('#city_id').select2();
+})
