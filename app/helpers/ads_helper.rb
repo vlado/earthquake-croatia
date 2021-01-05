@@ -30,6 +30,10 @@ module AdsHelper
     Ad.kinds.keys.map { |key| [t("ad.kinds.#{key}"), key] }
   end
 
+  def cities_for_filter_select
+    City.where(id: Ad.select("DISTINCT(city_id)")).order(:name).pluck(:name, :id)
+  end
+
   def category_tag(ad)
     mapping = {
       "accomodation" => "is-success",
