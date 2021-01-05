@@ -18,10 +18,10 @@ hr:
   activerecord:
     models:
       ad: Oglas
-      city: Grad
       county: Županija
     attributes:
       ad:
+        city: Grad
         description: Opis
         kind: Tip oglasa
         phone: Telefon
@@ -37,6 +37,7 @@ hr:
     label:
       ad:
         address: "Adresa *"
+        city: "Grad *"
         description: "Opis *"
         kind: "Tip oglasa *"
         phone: "Kontakt Telefon *"

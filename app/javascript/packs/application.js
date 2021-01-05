@@ -20,5 +20,13 @@ import "controllers";
 
 document.addEventListener("turbolinks:load", function() {
   $(".select2-container").remove(); //remove the select2 container DOM
-  $("#city_id, #ad_city_id").select2(); // Select2 will just reinit the DOM
+  $("#city_id").select2(); // Select2 will just reinit the DOM
+  let $newAddCitySelect = $("#ad_city_id");
+  $newAddCitySelect.select2({
+    ajax: {
+      url: $newAddCitySelect.data("url"),
+      dataType: "json",
+      delay: 200
+    }
+  });
 });
