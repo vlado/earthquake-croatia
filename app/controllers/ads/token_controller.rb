@@ -11,7 +11,7 @@ class Ads::TokenController < ApplicationController
       send_token(@ad)
       redirect_to ad_path(@ad), notice: I18n.t("tokens.sent.#{params[:a]}")
     else
-      flash.now[:alert] = "Email ne odgovara emailu ostavljenim uz oglas."
+      flash.now[:alert] = "Email ne odgovara email adresi ostavljenoj uz oglas."
       render :new
     end
   end

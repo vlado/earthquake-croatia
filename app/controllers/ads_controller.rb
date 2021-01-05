@@ -39,7 +39,7 @@ class AdsController < ApplicationController
     if token_valid? && @ad.update(ad_params)
       redirect_to ad_path(@ad), notice: "Izmjene spremljene"
     else
-      flash.now[:alert] = "Nedozvoljena akcija" if token_invalid?
+      flash.now[:alert] = "Nedozvoljena akcija." if token_invalid?
       render :edit
     end
   end
@@ -49,7 +49,7 @@ class AdsController < ApplicationController
     redirect_to ad_path(@ad), alert: "Nedozvoljena akcija." if token_invalid?
 
     @ad.soft_delete!
-    redirect_to ads_path, notice: "Oglas obirsan"
+    redirect_to ads_path, notice: "Oglas obirsan."
   end
 
   private
@@ -64,7 +64,7 @@ class AdsController < ApplicationController
   helper_method :ad_kind
 
   def token_valid?
-    params[:t].present? && @ad.token == params[:t]
+    @ad.token_valid?(params[:t])
   end
 
   def token_invalid?
