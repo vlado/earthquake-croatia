@@ -74,7 +74,6 @@ class ConnectAdWithCity < ActiveRecord::Migration[6.1]
     rename_column :ads, :city, :city_zdel
     add_reference :ads, :city, foreign_key: true, index: true
 
-    cities = []
     Ad.find_each(batch_size: 100) do |ad|
       if FOREIGN_CITIES.keys.include?(ad.city_zdel)
         import_foreign_ad(ad)
@@ -88,7 +87,14 @@ class ConnectAdWithCity < ActiveRecord::Migration[6.1]
   end
 
   def down
+    add_column :ads, :_city, :string
 
+    Ad.find_each(batch_size: 100) do |ad|
+      ad.update!(_city: ad.city.name)
+    end
+
+    remove_reference :ads, :city
+    rename_column :ads, :_city, :city
   end
 
   private
@@ -114,7 +120,7 @@ class ConnectAdWithCity < ActiveRecord::Migration[6.1]
     if city
       ad.update!(city_id: city.id )
     else
-      raise "Can not found foreign city `#{ad.city_zdel}`"
+      raise "Can not find foreign city `#{ad.city_zdel}`"
     end
   end
 
@@ -124,7 +130,7 @@ class ConnectAdWithCity < ActiveRecord::Migration[6.1]
     if city
       ad.update!(city_id: city.id )
     else
-      raise "Can not foundi HR city `#{city_name}`"
+      raise "Can not find city `#{city_name}`"
     end
   end
 end
