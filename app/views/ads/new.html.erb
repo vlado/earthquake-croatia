@@ -44,7 +44,7 @@
   <div class="control">
     <%= f.label :city, class: "label" %>
     <div class="select">
-      <%= f.select :city_id, options_for_select(City.pluck(:name, :id), params[:city]), prompt: "-- Svi gradovi --" %>
+      <%= f.select :city_id, cities_by_county_for_select %>
     </div>
   </div>
 

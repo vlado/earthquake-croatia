@@ -30,6 +30,12 @@ module AdsHelper
     Ad.kinds.keys.map { |key| [t("ad.kinds.#{key}"), key] }
   end
 
+  def cities_by_county_for_select
+    County.strict_loading.includes(:cities).map do |county|
+      [county.name, county.cities.map { |city| [city.name, city.id] }]
+    end
+  end
+
   def category_tag(ad)
     mapping = {
       "accomodation" => "is-success",
