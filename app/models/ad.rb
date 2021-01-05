@@ -39,6 +39,15 @@ class Ad < ApplicationRecord
   ].freeze
   KINDS = %w[supply demand].freeze
 
+  include PgSearch::Model
+  pg_search_scope :search, against: {
+    description: 'A',
+    city: 'B',
+    category: 'B',
+    kind: 'B',
+    address: 'C',
+  }, ignoring: :accents # , associated_against: { cities: :name }
+
   include NormalizeCityName
 
   validates :city, presence: true

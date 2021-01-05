@@ -48,3 +48,5 @@ gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "invisible_captcha"
 gem "will_paginate"
 gem "will_paginate-bulma"
+
+gem "pg_search"
