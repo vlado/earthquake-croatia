@@ -65,7 +65,7 @@ class Ad < ApplicationRecord
   end
 
   def token_valid?(token)
-    token.present? && token == self.token
+    token.present? && ActiveSupport::SecurityUtils.secure_compare(token, self.token)
   end
 
   def to_param

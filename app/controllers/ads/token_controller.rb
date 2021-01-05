@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Ads::TokenController < ApplicationController
+  ACTIONS = %w[edit delete].freeze
+
   def new
     @ad = Ad.active.find(params[:ad_id])
   end
@@ -9,7 +11,7 @@ class Ads::TokenController < ApplicationController
     @ad = Ad.active.find(params[:ad_id])
     if valid_email_provided?
       send_token(@ad)
-      redirect_to ad_path(@ad), notice: I18n.t("tokens.sent.#{params[:a]}")
+      redirect_to ad_path(@ad), notice: t("tokens.sent.#{action}")
     else
       flash.now[:alert] = "Email ne odgovara email adresi ostavljenoj uz oglas."
       render :new
@@ -18,13 +20,19 @@ class Ads::TokenController < ApplicationController
 
   private
 
+  def action
+    raise "Invalid action provided" unless ACTIONS.include?(params[:a])
+
+    params[:a]
+  end
+
   def send_token(ad)
     ad.update!(token: SecureRandom.hex)
-    AdMailer.send_token(ad, params[:a], build_url(ad, params[:a])).deliver_later
+    AdMailer.send_token(ad, params[:a], build_url(ad, action)).deliver_later
   end
 
   def valid_email_provided?
-    params[:email].present? && @ad.email == params[:email].strip
+    params[:email].present? && normalize(@ad.email) == normalize(params[:email])
   end
 
   def build_url(ad, action)
@@ -33,5 +41,9 @@ class Ads::TokenController < ApplicationController
     else
       edit_ad_url(ad, t: ad.token)
     end
+  end
+
+  def normalize(email)
+    email.strip.downcase
   end
 end

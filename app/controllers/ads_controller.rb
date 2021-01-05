@@ -30,7 +30,7 @@ class AdsController < ApplicationController
 
   def edit
     @ad = Ad.active.find(params[:id])
-    redirect_to ad_path(@ad), alert: "Nedozvoljena akcija." if token_invalid?
+    redirect_to ad_path(@ad), alert: t("ad.edit_not_allowed") if token_invalid?
   end
 
   def update
@@ -39,17 +39,17 @@ class AdsController < ApplicationController
     if token_valid? && @ad.update(ad_params)
       redirect_to ad_path(@ad), notice: "Izmjene spremljene"
     else
-      flash.now[:alert] = "Nedozvoljena akcija." if token_invalid?
+      flash.now[:alert] = t("ad.edit_not_allowed") if token_invalid?
       render :edit
     end
   end
 
   def destroy
     @ad = Ad.active.find(params[:id])
-    redirect_to ad_path(@ad), alert: "Nedozvoljena akcija." if token_invalid?
+    redirect_to ad_path(@ad), alert: t("ad.delete_not_allowed") if token_invalid?
 
     @ad.soft_delete!
-    redirect_to ads_path, notice: "Oglas obirsan."
+    redirect_to ads_path, notice: "Oglas obrisan."
   end
 
   private
