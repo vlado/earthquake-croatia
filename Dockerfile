@@ -17,8 +17,9 @@ WORKDIR /potres-app
 COPY Gemfile /potres-app/Gemfile
 COPY Gemfile.lock /potres-app/Gemfile.lock
 
-# Install ruby dependecies
-RUN bundle install
+# Install ruby and js dependecies
+RUN bundle install && \
+    yarn install
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/

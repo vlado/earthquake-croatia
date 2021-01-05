@@ -12,9 +12,7 @@ bash:
 
 ## Create and seed database
 db-create:
-	@docker-compose exec web rails db:create
-	@docker-compose run web rails db:migrate
-	@docker-compose exec web rails db:seed
+	@docker-compose run web rails db:setup
 
 ## Execute pending migrations
 db-migrate:
