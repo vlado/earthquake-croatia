@@ -15,22 +15,18 @@
 #  zip         :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  city_id     :bigint
-#
-# Indexes
-#
-#  index_ads_on_city_id  (city_id)
-#
-# Foreign Keys
-#
-#  fk_rails_...  (city_id => cities.id)
+#  city_id     :bigint           not null
 #
 # Indexes
 #
 #  index_ads_on_category    (category)
-#  index_ads_on_city        (city)
+#  index_ads_on_city_id     (city_id)
 #  index_ads_on_created_at  (created_at)
 #  index_ads_on_kind        (kind)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (city_id => cities.id)
 #
 class Ad < ApplicationRecord
   CATEGORIES = %w[
@@ -46,8 +42,6 @@ class Ad < ApplicationRecord
     clothes_and_shoes
   ].freeze
   KINDS = %w[supply demand].freeze
-
-  include NormalizeCityName
 
   belongs_to :city
 

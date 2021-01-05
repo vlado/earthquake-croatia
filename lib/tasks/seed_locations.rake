@@ -6,10 +6,10 @@ namespace :db do
   task seed_locations: :environment do
     locations_hash_from_csv.each do |county, locations|
       current_county = County.create(name: county)
-      locations.map! { |location| location.merge({ 
-                                                  county_id: current_county.id, 
+      locations.map! { |location| location.merge({
+                                                  county_id: current_county.id,
                                                   created_at: Time.now,
-                                                  updated_at: Time.now 
+                                                  updated_at: Time.now
                                                 }) }
       City.insert_all(locations)
     end
