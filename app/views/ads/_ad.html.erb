@@ -2,12 +2,10 @@
   <div class="tile is-child card is-flex is-flex-direction-column">
     <div class="card-content" data-controller="card-dropdown">
 
-      <div class="is-flex is-justify-content-space-between">
-        <div class="mb-4 is-uppercase is-size-7">
-          <%= category_tag ad %>
-        </div>
+      <div class="is-flex is-justify-content-space-between mb-4">
+        <%= category_tag ad %>
 
-        <div class="dropdown is-right" data-card-dropdown-target="dropdown">
+        <div class="dropdown is-right ml-2" data-card-dropdown-target="dropdown">
           <div class="dropdown-trigger">
             <button class="button" aria-haspopup="true" aria-controls="dropdown-menu-card-actions" data-action="card-dropdown#toggle">
               <span class="icon">
@@ -59,7 +57,7 @@
           </div>
         <% end %>
 
-        <p class="has-text-right is-size-7"><strong>Objavljeno</strong>: prije <%= time_ago_in_words ad.created_at %></p>
+        <p class="has-text-right is-size-7 mt-5"><strong>Objavljeno</strong>: prije <%= time_ago_in_words ad.created_at %></p>
       </div>
     </div>
 
