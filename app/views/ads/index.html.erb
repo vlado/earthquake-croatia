@@ -15,7 +15,7 @@
 
         <div class="control">
           <div class="select">
-            <%= select_tag :city_id, options_for_select(City.pluck(:name, :id), params[:city_id]), prompt: "-- Svi gradovi --" %>
+            <%= select_tag :city_id, options_for_select(City.where(id: Ad.select("DISTINCT(city_id)")).pluck(:name, :id), params[:city_id]), prompt: "-- Svi gradovi --" %>
           </div>
         </div>
 
