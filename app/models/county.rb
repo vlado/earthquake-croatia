@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: counties
@@ -12,5 +14,5 @@
 #  index_counties_on_name  (name)
 #
 class County < ApplicationRecord
-  has_many :cities
+  has_many :cities, dependent: :restrict_with_exception
 end
