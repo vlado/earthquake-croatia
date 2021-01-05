@@ -31,7 +31,7 @@ module AdsHelper
   end
 
   def cities_for_filter_select
-    City.where(id: Ad.select("DISTINCT(city_id)")).order(:name).pluck(:name, :id)
+    City.where(id: Ad.where(kind: ad_kind).select("DISTINCT(city_id)")).order(:name).pluck(:name, :id)
   end
 
   def category_tag(ad)
