@@ -58,7 +58,7 @@ class Ad < ApplicationRecord
 
   def to_param
     hr_category = I18n.t("ad.categories.#{category}")
-    [id, hr_category.parameterize, city.name].join("-")
+    [id, hr_category.parameterize, city.name.parameterize].join("-")
   end
 
   def full_address
