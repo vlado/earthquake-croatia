@@ -14,16 +14,11 @@
  *= require_self
  */
 
-@import "toastr/toastr";
 @import "hero";
 
 .icon > svg {
   width: inherit;
   height: inherit;
-}
-
-.toast-success {
-  background-color: #48c774;
 }
 
 input[type=checkbox].is-danger {
