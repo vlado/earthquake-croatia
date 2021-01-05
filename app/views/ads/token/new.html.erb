@@ -1,0 +1,21 @@
+<h2 class="subtitle is-3"><%= t("tokens.title.#{params[:a]}") %></h2>
+
+<% if @ad.editable? %>
+  <%= form_with url: ad_token_path(@ad) do |f| %>
+    <%= hidden_field_tag :a, params[:a] %>
+
+    <div class="field">
+      <%= label_tag :email, nil, class: "label" %>
+      <div class="control">
+        <%= email_field_tag :email, params[:email], class: "input" %>
+      </div>
+    </div>
+
+    <div class="is-flex is-align-items-center">
+      <%= f.submit "Pošalji", class: "button is-primary" %>
+      <%= link_to "Odustani", ad_path(@ad), class: "has-text-grey ml-4" %>
+    </div>
+  <% end %>
+<% else %>
+  <p>Oglas nije moguće urediti budući da email nije unešen. Molimo kontaktirajte nas ako je ovo Vaš oglas.</p>
+<% end %>

@@ -15,6 +15,17 @@ hr:
       demand: Tražim pomoć
       supply: Nudim pomoć
 
+  tokens:
+    action:
+      delete: brisanje
+      edit: uređivanje
+    title:
+      delete: Zatraži link za brisanje oglasa
+      edit: Zatraži link za uređivanje oglasa
+    sent:
+      delete: Link za brisanje oglasa poslan je na Vaš email.
+      edit: Link za uređivanje oglasa poslan je na Vaš email.
+
   activerecord:
     models:
       ad: Oglas
