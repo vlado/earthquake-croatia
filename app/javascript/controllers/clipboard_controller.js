@@ -9,7 +9,7 @@ export default class extends Controller {
     var clipboard = new ClipboardJS(this.button);
     clipboard.on("success", function() {
       toast({
-        message: "<span class='icon mr-2'><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 13l4 4L19 7' /></svg></span>Poveznica kopirana",
+        message: "<span class='icon mr-2'><svg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'><path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M5 13l4 4L19 7' /></svg></span>Poveznica kopirana", //eslint-disable-line
         type: "is-success",
         position: "top-center",
         closeOnClick: true,
