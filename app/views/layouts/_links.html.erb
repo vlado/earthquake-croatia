@@ -1,7 +1,7 @@
-<div id="external-links" class="card mb-6" data-controller="card">
+<div class="external-links card mb-6" data-controller="card">
   <a href="javascript:void(0)" class="card-header" data-action="card#toggle" aria-label="hide links">
     <span class="card-header-title">
-      Vanjske poveznice s popisima ponude smještaja i prijevoza
+      Kako mogu pomoći?
     </span>
     <span class="card-header-icon">
       <span class="icon chevron" data-card-target="chevron">
@@ -10,20 +10,59 @@
     </span>
   </a>
   <div class="card-content" data-card-target="content" hidden>
-    <div class="content">
-      <ul>
-        <li><a href="https://docs.google.com/document/d/15kSw0O1jtZYTeLh3jZg2XeGFbNbavIBsA0u_PvK8YRs/mobilebasic"  target="_blank">
-          Pomoć obiteljima iz Petrinje, Siska i okolice - kontakti, smještaj i prijevoz - Google doc (preview)
-        </a></li>
-        <li><a href="https://docs.google.com/document/d/1yUxHtKCkkXEQ8tXTD2bODbisxwF5Q9zvPJoU27vQGUM/edit?fbclid=IwAR0g1F__7avcVpOlf__NQgBq626LDmDNyz42k545TT5MCjTLMvf4De9tvMs" target="_blank">
-          Pomoć za Petrinju - Google doc
-        </a></li>
-        <li><a href="https://www.facebook.com/groups/155412969344431/permalink/155812429304485/" target="_blank">
-          POMOC GLINI, PETRINJI, SISKU i okolnim mjestima - Facebook grupa
-        </a></li>
-        <li><a href="https://potres2020.openit.hr/views/map" target="_blank">
-          Potres 2020 - mapa pomoći
-        </a></li>
+    <div class="help-category">
+      <div class="media">
+        <div class="media-left">
+          <span class="icon is-large">
+            <%= inline_svg_tag('globe.svg', aria: true) %>
+          </span>
+        </div>
+        <div class="media-content">
+          <h3 class="title is-4">Vanjske poveznice</h3>
+          <h4 class="subtitle is-6">Provjerene poveznice na korisne dokumente i web stranice</h4>
+        </div>
+      </div>
+      <ul class="content pl-2">
+        <li class="is-flex is-align-self-flex-start my-1">
+          <span class="icon mr-2">
+            <%= inline_svg_tag('file-word.svg', aria: true) %>
+          </span>
+          <a href="https://docs.google.com/document/d/15kSw0O1jtZYTeLh3jZg2XeGFbNbavIBsA0u_PvK8YRs">
+            Pomoć obiteljima iz Petrinje, Siska i okolice - kontakti, smještaj i prijevoz
+          </a>
+        </li>
+        <li class="is-flex is-align-self-flex-start my-1">
+          <span class="icon mr-2">
+            <%= inline_svg_tag('file-word.svg', aria: true) %>
+          </span>
+          <a href="https://docs.google.com/document/d/1yUxHtKCkkXEQ8tXTD2bODbisxwF5Q9zvPJoU27vQGUM">
+            Pomoć za Petrinju
+          </a>
+        </li>
+        <li class="is-flex is-align-self-flex-start my-1">
+          <span class="icon mr-2">
+            <%= inline_svg_tag('facebook-square.svg', aria: true) %>
+          </span>
+          <a href="https://www.facebook.com/groups/155412969344431/permalink/155812429304485/">
+            Pomoć Glini, Petrinji, Sisku i okolnim mjestima
+          </a>
+        </li>
+        <li class="is-flex is-align-self-flex-start my-1">
+          <span class="icon mr-2">
+            <%= inline_svg_tag('atlas.svg', aria: true) %>
+          </span>
+          <a href="https://potres2020.openit.hr/views/map">
+            Potres 2020 - mapa pomoći
+          </a>
+        </li>
+        <li class="is-flex is-align-self-flex-start my-1">
+          <span class="icon mr-2">
+            <%= inline_svg_tag('hand-holding-heart.svg', aria: true) %>
+          </span>
+          <a href="https://potres-help.com">
+            Potres help - organizacija volontera
+          </a>
+        </li>
       </ul>
     </div>
   </div>
