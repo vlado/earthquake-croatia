@@ -15,6 +15,6 @@ class CitiesController < ApplicationController
   def cities_search(query)
     return City.none if query.blank? || query.length < 3
 
-    City.strict_loading.where("name ILIKE ?", "#{query}%").select(:id, :name).limit(100)
+    City.strict_loading.where("unaccent(name) ILIKE ?", "#{query}%").select(:id, :name).limit(100)
   end
 end
