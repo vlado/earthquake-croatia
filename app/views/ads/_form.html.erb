@@ -1,0 +1,98 @@
+<div class="content">
+  <p>Polja označena * su obavezna.</p>
+</div>
+
+<% if ad.errors.any? %>
+  <article class="message is-danger">
+    <div class="message-header">
+      <p>Došlo je do greške!</p>
+    </div>
+    <div class="message-body">
+      <% ad.errors.full_messages.each do |message|  %>
+        <%= message %>
+        <br/>
+      <% end %>
+    </div>
+  </article>
+<% end %>
+
+<%= form_with model: ad do |f| %>
+  <%= f.invisible_captcha :title %>
+
+  <%= hidden_field_tag :t, params[:t] %>
+
+  <div class="field">
+    <%= f.label :kind, class: "label" %>
+    <div class="control">
+      <div class="select">
+        <%= f.select :kind, kinds_for_select, {}, required: true %>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :category, class: "label" %>
+    <div class="control">
+      <div class="select">
+        <%= f.select :category, categories_for_select %>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :zip, class: "label" %>
+    <div class="control">
+      <%= f.text_field :zip, class: "input" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :city, class: "label" %>
+    <div class="control">
+      <%= f.text_field :city, class: "input", required: true %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :address, class: "label" %>
+    <div class="control">
+      <%= f.text_field :address, class: "input", required: true %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :phone, class: "label" %>
+    <div class="control">
+      <%= f.text_field :phone, class: "input", required: true %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, class: "label" %>
+    <div class="control">
+      <%= f.email_field :email, class: "input" %>
+    </div>
+    <p class="help">Email nije obavezan ali bez njega nećete moći uređivati/brisati oglas.</p>
+  </div>
+
+  <div class="field">
+    <%= f.label :description, class: "label" %>
+    <div class="control">
+      <%= f.text_area :description, class: "input", style: "min-height:8em", required: true %>
+    </div>
+  </div>
+
+  <% if ad.new_record? %>
+    <div class="field">
+      <div class="control">
+        <%= f.check_box :consent, required: true %>
+        <%= f.label :consent, 'Pristajem da se oglas spremi sa svim navedenim podacima i pristajem da se oglas javno objavi.', class: "checkbox" %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="is-flex is-align-items-center">
+    <%= f.submit "Spremi", class: "button is-primary" %>
+    <%= link_to "Odustani", ads_path, class: "has-text-grey ml-4" %>
+  </div>
+<% end %>
