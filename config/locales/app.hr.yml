@@ -11,8 +11,8 @@ hr:
       other: Ostalo
       repairs: Usluga popravaka
       transport: Prijevoz
-    delete_not_allowed: Nemate dozvolu za brisanje ovog oglasa, molim vas provjerite poveznicu iz e-maila koji vam je poslan.
-    edit_not_allowed: Nemate dozvolu za uređivanje ovog oglasa, molim vas provjerite poveznicu iz e-maila koji vam je poslan.
+    delete_not_allowed: Nemate dozvolu za brisanje ovog oglasa, molim Vas provjerite poveznicu iz e-maila koji vam je poslan.
+    edit_not_allowed: Nemate dozvolu za uređivanje ovog oglasa, molim Vas provjerite poveznicu iz e-maila koji vam je poslan.
     kinds:
       demand: Tražim pomoć
       supply: Nudim pomoć
