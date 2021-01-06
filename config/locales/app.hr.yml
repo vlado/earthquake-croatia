@@ -11,9 +11,23 @@ hr:
       other: Ostalo
       repairs: Usluga popravaka
       transport: Prijevoz
+    delete_not_allowed: Nemate dozvolu za brisanje ovog oglasa, molim Vas provjerite poveznicu iz e-maila koji vam je poslan.
+    edit_not_allowed: Nemate dozvolu za uređivanje ovog oglasa, molim Vas provjerite poveznicu iz e-maila koji vam je poslan.
     kinds:
       demand: Tražim pomoć
       supply: Nudim pomoć
+
+
+  tokens:
+    action:
+      delete: brisanje
+      edit: uređivanje
+    title:
+      delete: Zatraži link za brisanje oglasa
+      edit: Zatraži link za uređivanje oglasa
+    sent:
+      delete: Link za brisanje oglasa poslan je na Vaš email.
+      edit: Link za uređivanje oglasa poslan je na Vaš email.
 
   activerecord:
     models:

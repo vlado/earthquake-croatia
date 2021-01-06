@@ -5,7 +5,9 @@ class AdsController < ApplicationController
 
   # rubocop:disable Metrics/AbcSize
   def index
-    @ads = Ad.strict_loading.includes(:city).where(kind: ad_kind).order(created_at: :desc).paginate(page: params[:page], per_page: 20)
+    @ads = Ad.active.strict_loading.includes(:city)
+    @ads = @ads.order(created_at: :desc).paginate(page: params[:page], per_page: 20)
+    @ads = @ads.where(kind: ad_kind)
     @ads = @ads.where(category: params[:category]) if params[:category].present?
     @ads = @ads.where(city_id: params[:city_id]) if params[:city_id].present?
   end
@@ -16,7 +18,7 @@ class AdsController < ApplicationController
   end
 
   def show
-    @ad = Ad.find(params[:id])
+    @ad = Ad.active.find(params[:id])
   end
 
   def create
@@ -26,6 +28,30 @@ class AdsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @ad = Ad.active.find(params[:id])
+    redirect_to ad_path(@ad), alert: t("ad.edit_not_allowed") if token_invalid?
+  end
+
+  def update
+    @ad = Ad.active.find(params[:id])
+
+    if token_valid? && @ad.update(ad_params)
+      redirect_to ad_path(@ad), notice: "Izmjene spremljene"
+    else
+      flash.now[:alert] = t("ad.edit_not_allowed") if token_invalid?
+      render :edit
+    end
+  end
+
+  def destroy
+    @ad = Ad.active.find(params[:id])
+    redirect_to ad_path(@ad), alert: t("ad.delete_not_allowed") if token_invalid?
+
+    @ad.soft_delete!
+    redirect_to ads_path, notice: "Oglas obrisan."
   end
 
   private
@@ -38,4 +64,12 @@ class AdsController < ApplicationController
     Ad.kinds.keys.include?(params[:kind]) ? params[:kind] : Ad.kinds.keys.first
   end
   helper_method :ad_kind
+
+  def token_valid?
+    @ad.token_valid?(params[:t])
+  end
+
+  def token_invalid?
+    !token_valid?
+  end
 end

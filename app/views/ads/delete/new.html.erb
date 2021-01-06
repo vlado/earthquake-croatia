@@ -1,0 +1,10 @@
+<h2 class="subtitle is-3">Obriši oglas</h2>
+
+<%= form_with url: ad_path(@ad), method: :delete do |f| %>
+  <%= hidden_field_tag :t, params[:t] %>
+
+  <div class="is-flex is-align-items-center">
+    <%= f.submit "Obriši", class: "button is-danger" %>
+    <%= link_to "Odustani", ad_path(@ad), class: "has-text-grey ml-4" %>
+  </div>
+<% end %>
