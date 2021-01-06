@@ -27,6 +27,10 @@
                 </span>
                 Kopiraj poveznicu
               </a>
+              <% if ad.editable? %>
+                <%= link_to "Uredi oglas", new_ad_token_path(ad, a: "edit"), class: "dropdown-item is-flex is-align-items-center" %>
+                <%= link_to "Obriši oglas", new_ad_token_path(ad, a: "delete"), class: "dropdown-item is-flex is-align-items-center" %>
+              <% end %>
             </div>
           </div>
         </div>
@@ -58,6 +62,25 @@
         <% end %>
 
         <p class="has-text-right is-size-7 mt-5"><strong>Objavljeno</strong>: prije <%= time_ago_in_words ad.created_at %></p>
+        <% if false %>
+      <div class="columns">
+        <div class="column">Telefon: <b><%= tel_to ad.phone %></b></div>
+        <div class="column">Objavljeno: <b>prije <%= time_ago_in_words ad.created_at %></b></div>
+      </div>
+      <hr>
+      <div class="columns" data-controller="clipboard">
+        <div class="column">
+          <%= link_to "Otvori oglas", ad_path(ad.to_param), class: "button" %>
+          <% if ad.editable? %>
+            <%= link_to "Uredi oglas", new_ad_token_path(ad, a: "edit"), class: "button" %>
+            <%= link_to "Obriši oglas", new_ad_token_path(ad, a: "delete"), class: "button" %>
+          <% end %>
+          </a>
+          <button data-clipboard-target="button" class="button" data-clipboard-text="<%= ad_url(ad.to_param) %>">
+            Kopiraj poveznicu na oglas
+          </button>
+        </div>
+      <% end %>
       </div>
     </div>
 

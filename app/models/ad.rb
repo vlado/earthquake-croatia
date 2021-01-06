@@ -7,22 +7,30 @@
 #  id          :bigint           not null, primary key
 #  address     :string
 #  category    :integer          default("accomodation"), not null
-#  city        :string
 #  consent     :boolean
+#  deleted_at  :datetime
 #  description :text
 #  email       :string
 #  kind        :integer          default("supply"), not null
 #  phone       :string
+#  token       :string
 #  zip         :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  city_id     :bigint           not null
 #
 # Indexes
 #
 #  index_ads_on_category    (category)
-#  index_ads_on_city        (city)
+#  index_ads_on_city_id     (city_id)
 #  index_ads_on_created_at  (created_at)
+#  index_ads_on_deleted_at  (deleted_at)
 #  index_ads_on_kind        (kind)
+#  index_ads_on_token       (token) UNIQUE
+#
+# Foreign Keys
+#
+#  fk_rails_...  (city_id => cities.id)
 #
 class Ad < ApplicationRecord
   CATEGORIES = %w[
@@ -40,6 +48,9 @@ class Ad < ApplicationRecord
   KINDS = %w[supply demand].freeze
 
   include NormalizeCityName
+  include SoftlyDeletable
+
+  scope :active, -> { not_deleted }
 
   validates :city, presence: true
   validates :description, presence: true
@@ -52,6 +63,14 @@ class Ad < ApplicationRecord
 
   enum category: CATEGORIES
   enum kind: KINDS
+
+  def editable?
+    email.present?
+  end
+
+  def token_valid?(token)
+    token.present? && ActiveSupport::SecurityUtils.secure_compare(token, self.token)
+  end
 
   def to_param
     hr_category = I18n.t("ad.categories.#{category}")
