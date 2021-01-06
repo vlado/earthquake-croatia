@@ -32,6 +32,7 @@ hr:
   activerecord:
     models:
       ad: Oglas
+      county: Županija
     attributes:
       ad:
         city: Grad
@@ -42,7 +43,10 @@ hr:
         consent: Privola
         address: Adresa
         category: Usluga
-
+      city:
+        name: Ime
+      county:
+        name: Ime
   helpers:
     label:
       ad:
@@ -51,3 +55,7 @@ hr:
         description: "Opis *"
         kind: "Tip oglasa *"
         phone: "Kontakt Telefon *"
+      city:
+        name: "Ime *"
+      county:
+        name: "Ime *"

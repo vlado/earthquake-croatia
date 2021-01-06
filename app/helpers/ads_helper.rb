@@ -8,7 +8,7 @@ module AdsHelper
   end
 
   def filtered?
-    params[:category].present? || params[:city].present?
+    params[:category].present? || params[:city_id].present?
   end
 
   def categories_for_select
@@ -28,6 +28,10 @@ module AdsHelper
 
   def kinds_for_select
     Ad.kinds.keys.map { |key| [t("ad.kinds.#{key}"), key] }
+  end
+
+  def cities_for_filter_select
+    City.where(id: Ad.active.where(kind: ad_kind).select("DISTINCT(city_id)")).order(:name).pluck(:name, :id)
   end
 
   def category_tag(ad)

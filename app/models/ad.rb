@@ -7,7 +7,6 @@
 #  id          :bigint           not null, primary key
 #  address     :string
 #  category    :integer          default("accomodation"), not null
-#  city        :string
 #  consent     :boolean
 #  deleted_at  :datetime
 #  description :text
@@ -18,15 +17,20 @@
 #  zip         :string
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  city_id     :bigint           not null
 #
 # Indexes
 #
 #  index_ads_on_category    (category)
-#  index_ads_on_city        (city)
+#  index_ads_on_city_id     (city_id)
 #  index_ads_on_created_at  (created_at)
 #  index_ads_on_deleted_at  (deleted_at)
 #  index_ads_on_kind        (kind)
 #  index_ads_on_token       (token) UNIQUE
+#
+# Foreign Keys
+#
+#  fk_rails_...  (city_id => cities.id)
 #
 class Ad < ApplicationRecord
   CATEGORIES = %w[
@@ -43,12 +47,12 @@ class Ad < ApplicationRecord
   ].freeze
   KINDS = %w[supply demand].freeze
 
-  include NormalizeCityName
+  belongs_to :city
+
   include SoftlyDeletable
 
   scope :active, -> { not_deleted }
 
-  validates :city, presence: true
   validates :description, presence: true
   validates :phone, presence: true, on: %i[create update]
   validates :kind, presence: true, inclusion: { in: KINDS }
@@ -70,7 +74,7 @@ class Ad < ApplicationRecord
 
   def to_param
     hr_category = I18n.t("ad.categories.#{category}")
-    [id, hr_category.parameterize, city.parameterize].join("-")
+    [id, hr_category.parameterize, city.name.parameterize].join("-")
   end
 
   def full_address
@@ -78,6 +82,6 @@ class Ad < ApplicationRecord
   end
 
   def zip_and_city
-    [zip, city].select(&:present?).join(" ")
+    city.to_s
   end
 end

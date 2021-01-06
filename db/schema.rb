@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 2021_01_04_195316) do
   enable_extension "unaccent"
 
   create_table "ads", force: :cascade do |t|
-    t.string "city"
     t.string "zip"
     t.string "phone"
     t.text "description"
@@ -30,12 +29,32 @@ ActiveRecord::Schema.define(version: 2021_01_04_195316) do
     t.integer "category", default: 0, null: false
     t.string "token"
     t.datetime "deleted_at"
+    t.bigint "city_id", null: false
     t.index ["category"], name: "index_ads_on_category"
-    t.index ["city"], name: "index_ads_on_city"
+    t.index ["city_id"], name: "index_ads_on_city_id"
     t.index ["created_at"], name: "index_ads_on_created_at"
     t.index ["deleted_at"], name: "index_ads_on_deleted_at"
     t.index ["kind"], name: "index_ads_on_kind"
     t.index ["token"], name: "index_ads_on_token", unique: true
   end
 
+  create_table "cities", force: :cascade do |t|
+    t.string "area_name"
+    t.bigint "county_id"
+    t.string "name"
+    t.integer "zip_code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["county_id"], name: "index_cities_on_county_id"
+  end
+
+  create_table "counties", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_counties_on_name"
+  end
+
+  add_foreign_key "ads", "cities"
+  add_foreign_key "cities", "counties"
 end
