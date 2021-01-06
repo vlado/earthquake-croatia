@@ -57,6 +57,12 @@ input[type=checkbox].is-danger {
     .select2-selection__placeholder {
       color: #dbdbdb !important;
     }
+
+    .select2-selection__rendered {
+      // this matches Bulma's dropdown padding
+      padding-left: calc(.75em - 1px) !important;
+      padding-right: 2.5em !important;
+    }
   }
 
   .select2-dropdown {
