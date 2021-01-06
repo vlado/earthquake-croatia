@@ -8,7 +8,7 @@ module AdsHelper
   end
 
   def filtered?
-    params[:category].present? || params[:city].present?
+    params[:category].present? || params[:city_id].present?
   end
 
   def categories_for_select
