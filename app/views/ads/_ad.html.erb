@@ -28,8 +28,20 @@
                 Kopiraj poveznicu
               </a>
               <% if ad.editable? %>
-                <%= link_to "Uredi oglas", new_ad_token_path(ad, a: "edit"), class: "dropdown-item is-flex is-align-items-center" %>
-                <%= link_to "Obriši oglas", new_ad_token_path(ad, a: "delete"), class: "dropdown-item is-flex is-align-items-center" %>
+                <hr class="dropdown-divider">
+                <a class="dropdown-item is-flex is-align-items-center" href="<%= new_ad_token_path(ad, a: "edit") %>" >
+                  <span class="icon is-small mr-2">
+                    <%= inline_svg_tag('pen.svg', aria: true) %>
+                  </span>
+                  Uredi oglas
+                </a>
+
+                <a class="dropdown-item is-flex is-align-items-center has-text-danger" href="<%= new_ad_token_path(ad, a: "delete") %>" >
+                  <span class="icon is-small mr-2">
+                    <%= inline_svg_tag('trash.svg', aria: true) %>
+                  </span>
+                  Obriši oglas
+                </a>
               <% end %>
             </div>
           </div>
@@ -37,7 +49,7 @@
       </div>
 
       <div class="content">
-        <h3 class="is-size-5"><%= ad.zip_and_city %></h3>
+        <h3 class="is-size-5"><%= ad.city %></h3>
 
         <%= simple_format ad.description %>
 
@@ -47,16 +59,19 @@
               <span class="icon mr-2">
                 <%= inline_svg_tag('location.svg', aria: true) %>
               </span>
-              <%= ad.address %>
-            </div>
 
-            <div class="mt-2">
-              <a href="<%= maps_url(ad.full_address) %>" target="_blank" class="is-flex">
-                <span class="icon mr-2">
-                  <%= inline_svg_tag('map.svg', aria: true) %>
-                </span>
-                Lokacija na karti
-              </a>
+              <ul class="m-0">
+                <li class="is-block"><%= ad.address %></li>
+                <li class="is-block"><%= ad.zip_and_city %></li>
+                <li class="is-block">
+                  <a href="<%= maps_url(ad.full_address) %>" target="_blank" class="is-flex">
+                  <span class="icon mr-2">
+                    <%= inline_svg_tag('map.svg', aria: true) %>
+                  </span>
+                  Lokacija na karti
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         <% end %>
