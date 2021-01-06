@@ -37,6 +37,7 @@ class ConnectAdWithCity < ActiveRecord::Migration[6.1]
     "Konavle" => "Gruda",
     "Kravarsko - Novo Brdo" => "Novo Brdo",
     "Moscenica" => "Moščenica",
+    "Moscenica, Petrinja" => "Moščenica",
     "Neorić-Sutina" => "Neorić",
     "Okolica Sinja" => "Sinj",
     "Oprtalj" => "Oprtalj - Portole",
