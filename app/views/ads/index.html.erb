@@ -33,17 +33,17 @@
 </div>
 
 <% if filtered? %>
-  <div class="mb-6">
+  <div class="tags mb-6">
     <% if params[:city_id].present? %>
-      <span class="tag">
+      <span class="tag is-medium is-white">
         <%= City.find_by(id: params[:city_id])&.name %>
-        <%= link_to "", params.permit(:category, :kind), class: "delete is-small"  %>
+        <%= link_to "", params.permit(:category, :kind), class: "delete ml-2" %>
       </span>
     <% end %>
     <% if params[:category].present? %>
-      <span class="tag">
+      <span class="tag is-medium is-white">
         <%= t("ad.categories.#{params[:category]}") %>
-        <%= link_to "", params.permit(:city_id, :kind), class: "delete is-small"  %>
+        <%= link_to "", params.permit(:city_id, :kind), class: "delete ml-2" %>
       </span>
     <% end %>
   </div>
