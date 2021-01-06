@@ -31,6 +31,7 @@ document.addEventListener("turbolinks:load", function() {
       url: $newAddCitySelect.data("url"),
       dataType: "json",
       delay: 200
-    }
+    },
+    minimumInputLength: 3
   });
 });
