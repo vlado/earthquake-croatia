@@ -43,6 +43,13 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: %i[mri mingw x64_mingw]
   gem "rubocop-rails", "~> 2.3", ">= 2.3.1"
+
+  gem "rspec-rails", "~> 4.0.1"
+
+  gem "pry"
+  gem "pry-byebug"
+
+  gem "ffaker"
 end
 
 group :development do
@@ -56,7 +63,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem "spring"
 
-  gem "ffaker"
   gem "pry-rails"
   # Preview email in the default browser instead of sending it.
   gem "letter_opener"
@@ -65,6 +71,7 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem "capybara", ">= 3.26"
+  gem "capybara-select-2"
   gem "selenium-webdriver"
   # Easy installation and use of web drivers to run system tests with browsers
   gem "webdrivers"
