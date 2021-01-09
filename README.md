@@ -106,6 +106,24 @@ or if you use foreman
 foreman start -f Procfile.dev
 ```
 
+#### Tests
+
+First set up the test database with:
+```bash
+RAILS_ENV=test bin/rails db:setup
+```
+Note that this will also seed it with data from `db/seed.rb`.
+
+And then run with
+```bash
+rspec
+```
+
+If you want to see the system tests running in visible chrome run it with:
+```bash
+HEADLESS=false rspec
+```
+
 ## Statement
 
 This application is an open-source humanitarian project where everyone can participate and contribute. The sole purpose of this application is to help earthquake victims in the areas of Glina, Sisak, Petrinja, and surrounding villages and settlements.

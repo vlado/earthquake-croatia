@@ -5,9 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "ffaker"
 
 ads_data = []
 number_of_ads = 500
+
+county = County.create!(name: "SISAČKO-MOSLAVAČKA")
+City.create!(name: "Petrinja", county: county)
+City.create!(name: "Glina", county: county)
+City.create!(name: "Sisak", county: county)
+
 cities = City.pluck(:id)
 time_of_creation = Time.now
 number_of_ads.times do
