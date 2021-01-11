@@ -48,10 +48,13 @@ class Ad < ApplicationRecord
   KINDS = %w[supply demand].freeze
 
   belongs_to :city
+  has_one :reason, dependent: :delete
 
   include SoftlyDeletable
 
   scope :active, -> { not_deleted }
+  scope :ordered, -> { order(created_at: :desc) }
+  scope :for_kind, ->(kind) { where(kind: kind) }
 
   validates :description, presence: true
   validates :phone, presence: true, on: %i[create update]

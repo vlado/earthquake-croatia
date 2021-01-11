@@ -3,6 +3,26 @@
 <%= form_with url: ad_path(@ad), method: :delete do |f| %>
   <%= hidden_field_tag :t, params[:t] %>
 
+  <div class="field">
+    <%= t("ad.delete_reason_request") %>
+  </div>
+
+  <div class="field">
+    <%= f.label :delete_reason, class: "label" %>
+    <div class="control">
+      <div class="select">
+        <%= f.select :delete_reason, delete_reasons_for_select(@ad.kind), prompt: '-- Razlog za brisanje --' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :delete_comment, class: "label" %>
+    <div class="control">
+      <%= f.text_field :delete_comment, class: "input" %>
+    </div>
+  </div>
+
   <div class="is-flex is-align-items-center">
     <%= f.submit "Obriši", class: "button is-danger" %>
     <%= link_to "Odustani", ad_path(@ad), class: "has-text-grey ml-4" %>
