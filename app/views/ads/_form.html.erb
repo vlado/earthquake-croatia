@@ -42,7 +42,7 @@
   <div class="control">
     <%= f.label :city, class: "label" %>
     <div class="select">
-      <%= f.select :city_id, [], { prompt: "-- Odaberi Grad --" }, data: { url: cities_path } %>
+      <%= f.select :city_id, [city_for_select(ad.city)].compact, { prompt: "-- Odaberi Grad --" }, data: { url: cities_path } %>
     </div>
   </div>
 

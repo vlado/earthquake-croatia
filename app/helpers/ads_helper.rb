@@ -34,6 +34,12 @@ module AdsHelper
     City.where(id: Ad.active.where(kind: ad_kind).select("DISTINCT(city_id)")).order(:name).pluck(:name, :id)
   end
 
+  def city_for_select(city)
+    return if city.nil?
+
+    [city.name, city.id]
+  end
+
   def category_tag(ad)
     mapping = {
       "accomodation" => "is-success",
