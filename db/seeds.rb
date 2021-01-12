@@ -22,7 +22,7 @@ number_of_ads.times do
     city_id: cities.sample,
     phone: '0' + rand(9_000_00_00..9_999_99_99).to_s,
     description: FFaker::Lorem.paragraph,
-    email: rand(0..number_of_ads) < 40 ? FFaker::Internet.email : nil, # 40% chance ad has email
+    email: rand < 0.4 ? FFaker::Internet.email : nil, # 40% chance ad has email
     kind: Ad::KINDS.sample,
     consent: true,
     address: FFaker::Address.street_name,

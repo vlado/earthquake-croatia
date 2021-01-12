@@ -16,7 +16,19 @@ hr:
     kinds:
       demand: Tražim pomoć
       supply: Nudim pomoć
+    delete_reason_request: |
+      Ova stranica je nastala volonterskim radom i htijeli bi ocijeniti koliko je korisna bila i kako ju možemo učiniti korisnijom.
+      To je potpuno opcionalno ali pomoglo bi nam kada biste naveli razlog zašto oglas više nije relevantan. Hvala!
 
+  reason:
+    delete_reasons:
+      other: Ostalo
+      got_help_here: Dobili smo pomoć preko ove stranice
+      got_help_elsewhere: Dobili smo pomoć preko drugog kanala
+      solved_problem_ourselves: Sami smo riješili problem i više nam ne treba pomoć
+      gave_help_here: Kontaktirali su nas preko ove stranice i dali smo pomoć
+      gave_help_elsewhere: Kontaktirali su nas drugim kanalom i dali smo pomoć
+      cannot_give_help_anymore: Više nismo u mogućnosti ponuditi pomoć
 
   tokens:
     action:
@@ -49,6 +61,8 @@ hr:
         name: Ime
   helpers:
     label:
+      delete_reason: "Razlog za brisanje"
+      delete_comment: "Dodatno pojašnjenje (opcionalno)"
       ad:
         address: "Adresa *"
         city: "Grad *"

@@ -6,8 +6,8 @@ class AdsController < ApplicationController
   # rubocop:disable Metrics/AbcSize
   def index
     @ads = Ad.active.strict_loading.includes(:city)
-    @ads = @ads.order(created_at: :desc).paginate(page: params[:page], per_page: 20)
-    @ads = @ads.where(kind: ad_kind)
+    @ads = @ads.ordered.paginate(page: params[:page], per_page: 20)
+    @ads = @ads.for_kind(ad_kind)
     @ads = @ads.where(category: params[:category]) if params[:category].present?
     @ads = @ads.where(city_id: params[:city_id]) if params[:city_id].present?
   end
@@ -50,7 +50,7 @@ class AdsController < ApplicationController
     @ad = Ad.active.find(params[:id])
     redirect_to ad_path(@ad), alert: t("ad.delete_not_allowed") if token_invalid?
 
-    @ad.soft_delete!
+    @ad.soft_delete!(params[:delete_reason], params[:delete_comment])
     redirect_to ads_path, notice: "Oglas obrisan."
   end
 

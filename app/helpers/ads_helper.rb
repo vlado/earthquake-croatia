@@ -30,6 +30,11 @@ module AdsHelper
     Ad.kinds.keys.map { |key| [t("ad.kinds.#{key}"), key] }
   end
 
+  def delete_reasons_for_select(ad_kind)
+    Reason::DELETE_REASONS.slice(ad_kind.to_sym, :common).values.flat_map(&:keys)
+                          .map { |reason| [I18n.t("reason.delete_reasons.#{reason}"), reason] }
+  end
+
   def cities_for_filter_select
     City.where(id: Ad.active.where(kind: ad_kind).select("DISTINCT(city_id)")).order(:name).pluck(:name, :id)
   end
