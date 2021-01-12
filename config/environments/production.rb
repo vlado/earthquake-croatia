@@ -123,7 +123,7 @@ Rails.application.configure do
     :port           => '465',
     :authentication => :plain,
     :user_name      => ENV['SENDGRID_USERNAME'],
-    :password       => ENV['SENDGRID_PASSWORD'],
+    :password       => ENV['SENDGRID_API_KEY'],
     :domain         => 'potres-petrinja.hr',
     :enable_starttls_auto => true,
     :ssl => true
