@@ -72,6 +72,7 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem "capybara", ">= 3.26"
   gem "capybara-select-2"
+  gem "factory_bot_rails"
   gem "selenium-webdriver"
   # Easy installation and use of web drivers to run system tests with browsers
   gem "webdrivers"
@@ -83,3 +84,6 @@ gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
 gem "invisible_captcha"
 gem "will_paginate"
 gem "will_paginate-bulma"
+
+# Must be included after will-paginate
+gem "api-pagination"

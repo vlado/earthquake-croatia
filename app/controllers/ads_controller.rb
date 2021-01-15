@@ -3,15 +3,17 @@
 class AdsController < ApplicationController
   invisible_captcha only: [:create], honeypot: :title
 
-  # rubocop:disable Metrics/AbcSize
   def index
-    @ads = Ad.active.strict_loading.includes(:city)
-    @ads = @ads.ordered.paginate(page: params[:page], per_page: 20)
-    @ads = @ads.for_kind(ad_kind)
-    @ads = @ads.where(category: params[:category]) if params[:category].present?
-    @ads = @ads.where(city_id: params[:city_id]) if params[:city_id].present?
+    @ads = Ad
+      .active
+      .strict_loading
+      .includes(:city)
+      .ordered
+      .paginate(page: params[:page], per_page: 20)
+      .for_kind(ad_kind)
+      .for_category(params[:category])
+      .for_city(params[:city_id])
   end
-  # rubocop:enable Metrics/AbcSize
 
   def new
     @ad = Ad.new(kind: ad_kind)

@@ -54,7 +54,9 @@ class Ad < ApplicationRecord
 
   scope :active, -> { not_deleted }
   scope :ordered, -> { order(created_at: :desc) }
-  scope :for_kind, ->(kind) { where(kind: kind) }
+  scope :for_kind, ->(kind) { where(kind: kind) if kind.present? }
+  scope :for_category, ->(category) { where(category: category) if category.present? }
+  scope :for_city, ->(city) { where(city: city) if city.present? }
 
   validates :description, presence: true
   validates :phone, presence: true, on: %i[create update]
