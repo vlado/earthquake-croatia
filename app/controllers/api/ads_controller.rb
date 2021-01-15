@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Api::AdsController < ApplicationController
   include Rails::Pagination # https://github.com/davidcelis/api-pagination
 

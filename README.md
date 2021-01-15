@@ -1,4 +1,4 @@
-G Earthquake Croatia web application
+# Earthquake Croatia web application
 
 This application allows citizens to offer and request help in areas affected by
 earthquake and possibly other hazardous situations. It is currently hosted at
