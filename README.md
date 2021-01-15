@@ -15,6 +15,7 @@ Returns ads with pagination details in headers (`Link`, `Per-Page`, `Total`). Th
 Available params (all params are optional):
 
 | Param name | Allowed values | Default | Example |
+| --- | --- | --- | --- |
 | page | Integer gt 0 | 1 | https://www.potres-petrinja.hr/api/ads?page=2 |
 | per_page | Integer 20 <= i <= 100 | 20 | https://www.potres-petrinja.hr/api/ads?per_page=50 |
 | kind | `supply` or `demand` | - | https://www.potres-petrinja.hr/api/ads?kind=demand |

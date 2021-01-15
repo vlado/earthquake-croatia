@@ -24,8 +24,6 @@ class Api::AdsController < ApplicationController
 
   def per_page
     value = params[:per_page].to_i
-    return value if value.between?(MIN_PER_PAGE, MAX_PER_PAGE)
-
-    value > MAX_PER_PAGE ? MAX_PER_PAGE : MIN_PER_PAGE
+    value.clamp(MIN_PER_PAGE..MAX_PER_PAGE)
   end
 end
