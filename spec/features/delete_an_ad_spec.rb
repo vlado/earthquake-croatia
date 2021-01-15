@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe "Ad deleting", type: :system do
-  let(:topmost_ad) { Ad.ordered.for_kind("supply").first }
+  let(:topmost_ad) { Ad.ordered.for_kind("supply").first or create(:ad, kind: :supply) }
 
   def delete_link_from_last_email
     email_body = ActionMailer::Base.deliveries.last.body.to_s

@@ -17,6 +17,10 @@ RSpec.describe "Ad posting", type: :system do
     expect(page).to have_content("044555555")
   end
 
+  before do
+    create(:city, name: "Petrinja")
+  end
+
   def create_ad(type:)
     visit "/"
     click_on "Dodaj oglas"
