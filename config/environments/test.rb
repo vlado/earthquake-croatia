@@ -8,6 +8,9 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  routes.default_url_options[:host] = "test.app"
+  routes.default_url_options[:protocol] = "http"
+
   config.cache_classes = false
   config.action_view.cache_template_loading = true
 

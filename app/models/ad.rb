@@ -4,20 +4,21 @@
 #
 # Table name: ads
 #
-#  id          :bigint           not null, primary key
-#  address     :string
-#  category    :integer          default("accomodation"), not null
-#  consent     :boolean
-#  deleted_at  :datetime
-#  description :text
-#  email       :string
-#  kind        :integer          default("supply"), not null
-#  phone       :string
-#  token       :string
-#  zip         :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  city_id     :bigint           not null
+#  id               :bigint           not null, primary key
+#  address          :string
+#  category         :integer          default("accomodation"), not null
+#  consent          :boolean
+#  deleted_at       :datetime
+#  description      :text
+#  email            :string
+#  kind             :integer          default("supply"), not null
+#  phone            :string
+#  reminder_sent_at :datetime
+#  token            :string
+#  zip              :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  city_id          :bigint           not null
 #
 # Indexes
 #
@@ -57,6 +58,9 @@ class Ad < ApplicationRecord
   scope :for_kind, ->(kind) { where(kind: kind) if kind.present? }
   scope :for_category, ->(category) { where(category: category) if category.present? }
   scope :for_city, ->(city) { where(city: city) if city.present? }
+  scope :not_reminded, -> { where(reminder_sent_at: nil) }
+  scope :expiring, -> { where(created_at: ..2.days.ago) }
+  scope :with_email, -> { where.not(email: nil) }
 
   validates :description, presence: true
   validates :phone, presence: true, on: %i[create update]
@@ -82,6 +86,10 @@ class Ad < ApplicationRecord
 
   def editable?
     email.present?
+  end
+
+  def refresh_token!
+    update!(token: SecureRandom.hex)
   end
 
   def token_valid?(token)

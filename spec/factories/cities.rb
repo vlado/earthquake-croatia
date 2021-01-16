@@ -4,6 +4,6 @@ FactoryBot.define do
   factory :city do
     area_name { "some area" }
     county
-    name { "some city" }
+    sequence(:name) { |n| "City #{n}" }
   end
 end

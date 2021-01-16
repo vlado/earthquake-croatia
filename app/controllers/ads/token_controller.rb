@@ -27,7 +27,7 @@ class Ads::TokenController < ApplicationController
   end
 
   def send_token(ad)
-    ad.update!(token: SecureRandom.hex)
+    ad.refresh_token!
     AdMailer.send_token(ad, params[:a], build_url(ad, action)).deliver_later
   end
 
