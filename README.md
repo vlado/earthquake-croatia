@@ -6,6 +6,21 @@ earthquake and possibly other hazardous situations. It is currently hosted at
 
 ![Screenshot](doc/img/screenshot.png)
 
+## Json API
+
+### /api/ads
+
+Returns ads with pagination details in headers (`Link`, `Per-Page`, `Total`). This follows the proposed [RFC-8288](https://tools.ietf.org/html/rfc8288) standard for Web linking.
+
+Available params (all params are optional):
+
+| Param name | Allowed values | Default | Example |
+| --- | --- | --- | --- |
+| page | Integer gt 0 | 1 | https://www.potres-petrinja.hr/api/ads?page=2 |
+| per_page | Integer 20 <= i <= 100 | 20 | https://www.potres-petrinja.hr/api/ads?per_page=50 |
+| kind | `supply` or `demand` | - | https://www.potres-petrinja.hr/api/ads?kind=demand |
+| category | `accomodation`, `transport`, `repairs`, `medical_assistance`, `other`, `building_material`, `kids`, `diet_and_hygiene`, `furniture_and_household`, `clothes_and_shoes` | - | https://www.potres-petrinja.hr/api/ads?category=accomodation |
+
 ## How to contribute
 
 If you want to contribute, please check out our issues tab, see if anything is

@@ -54,7 +54,9 @@ class Ad < ApplicationRecord
 
   scope :active, -> { not_deleted }
   scope :ordered, -> { order(created_at: :desc) }
-  scope :for_kind, ->(kind) { where(kind: kind) }
+  scope :for_kind, ->(kind) { where(kind: kind) if kind.present? }
+  scope :for_category, ->(category) { where(category: category) if category.present? }
+  scope :for_city, ->(city) { where(city: city) if city.present? }
 
   validates :description, presence: true
   validates :phone, presence: true, on: %i[create update]
@@ -66,6 +68,17 @@ class Ad < ApplicationRecord
 
   enum category: CATEGORIES
   enum kind: KINDS
+
+  def self.for_index_page(kind: nil, category: nil, city_id: nil)
+    Ad
+      .active
+      .strict_loading
+      .includes(:city)
+      .ordered
+      .for_kind(kind)
+      .for_category(category)
+      .for_city(city_id)
+  end
 
   def editable?
     email.present?

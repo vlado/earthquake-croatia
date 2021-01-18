@@ -19,6 +19,9 @@ AllCops:
 Style/Documentation:
  Enabled: false
 
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
 Naming/MethodParameterName:
  Enabled: false
 

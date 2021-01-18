@@ -32,7 +32,7 @@ module AdsHelper
 
   def delete_reasons_for_select(ad_kind)
     Reason::DELETE_REASONS.slice(ad_kind.to_sym, :common).values.flat_map(&:keys)
-                          .map { |reason| [I18n.t("reason.delete_reasons.#{reason}"), reason] }
+      .map { |reason| [I18n.t("reason.delete_reasons.#{reason}"), reason] }
   end
 
   def cities_for_filter_select
