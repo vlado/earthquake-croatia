@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :ad do
     address { "Somewhere far away" }
-    city { build(:city) }
+    city
     consent { true }
     description { "Some description." }
     kind { :supply }

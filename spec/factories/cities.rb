@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :city do
     area_name { "some area" }
-    county { build(:county) }
+    county
     name { "some city" }
   end
 end
