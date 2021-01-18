@@ -69,6 +69,17 @@ class Ad < ApplicationRecord
   enum category: CATEGORIES
   enum kind: KINDS
 
+  def self.for_index_page(kind: nil, category: nil, city_id: nil)
+    Ad
+      .active
+      .strict_loading
+      .includes(:city)
+      .ordered
+      .for_kind(kind)
+      .for_category(category)
+      .for_city(city_id)
+  end
+
   def editable?
     email.present?
   end

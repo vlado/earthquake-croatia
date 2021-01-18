@@ -6,16 +6,10 @@ class Api::AdsController < ApplicationController
   MIN_PER_PAGE = 20
   MAX_PER_PAGE = 100
 
-  def index # rubocop:disable Metrics/AbcSize
+  def index
     @ads = Ad
-      .active
-      .strict_loading
-      .includes(:city)
-      .ordered
+      .for_index_page(kind: params[:kind], category: params[:category], city_id: params[:city_id])
       .paginate(page: params[:page])
-      .for_kind(params[:kind])
-      .for_category(params[:category])
-      .for_city(params[:city_id])
 
     paginate @ads, per_page: per_page
   end

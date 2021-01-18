@@ -5,14 +5,8 @@ class AdsController < ApplicationController
 
   def index
     @ads = Ad
-      .active
-      .strict_loading
-      .includes(:city)
-      .ordered
+      .for_index_page(kind: ad_kind, category: params[:category], city_id: params[:city_id])
       .paginate(page: params[:page], per_page: 20)
-      .for_kind(ad_kind)
-      .for_category(params[:category])
-      .for_city(params[:city_id])
   end
 
   def new
