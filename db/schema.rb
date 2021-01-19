@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_09_210542) do
+ActiveRecord::Schema.define(version: 2021_01_14_201454) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2021_01_09_210542) do
     t.string "token"
     t.datetime "deleted_at"
     t.bigint "city_id", null: false
+    t.datetime "reminder_sent_at"
     t.index ["category"], name: "index_ads_on_category"
     t.index ["city_id"], name: "index_ads_on_city_id"
     t.index ["created_at"], name: "index_ads_on_created_at"

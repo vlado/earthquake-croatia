@@ -23,4 +23,11 @@ namespace :ads do
 
     puts "City names normalized!"
   end
+
+  desc "Send reminder emails to remind up to 300 oldest emails to update it."
+  task send_reminders: :environment do
+    count = AdReminder.new.remind_oldest(300).size
+
+    puts "Oldest #{count} emails reminded."
+  end
 end

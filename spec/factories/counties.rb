@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :county do
-    name { "Some county" }
+    sequence(:name) { |n| "County #{n}" }
   end
 end
