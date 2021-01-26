@@ -6,13 +6,22 @@ class AdReminder
 
   def remind_oldest(batch_size)
     Ad.with_email.not_deleted.not_reminded.expiring.order(created_at: :asc).limit(batch_size).each do |ad|
-      ad.refresh_token!
-      AdMailer.send_reminder(
-        ad,
-        ad_url(ad),
-        edit_ad_url(ad, t: ad.token),
-        new_ad_delete_url(ad, t: ad.token)
-      ).deliver
+      remind_ad(ad)
     end
+  end
+
+  private
+
+  def remind_ad(ad)
+    ad.refresh_token!
+    AdMailer.send_reminder(
+      ad,
+      ad_url(ad),
+      edit_ad_url(ad, t: ad.token),
+      new_ad_delete_url(ad, t: ad.token)
+    ).deliver
+    ad.update!(reminder_sent_at: Time.zone.now)
+  rescue StandardError => e
+    Rails.logger.debug "Errror while trying to remind Ad##{ad.id}: #{e.message}"
   end
 end
