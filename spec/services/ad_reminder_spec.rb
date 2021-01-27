@@ -17,7 +17,9 @@ RSpec.describe AdReminder do
 
       last_delivery = ActionMailer::Base.deliveries.last
       expect(last_delivery.to).to eq [ad.email]
-      expect(ad.reload.token).to be_present
+      ad.reload
+      expect(ad.token).to be_present
+      expect(ad.reminder_sent_at).to be_present
       expect(last_delivery.body).to include("edit?t=#{ad.token}")
       expect(last_delivery.body).to include("delete/new?t=#{ad.token}")
     end
