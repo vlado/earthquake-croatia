@@ -1,5 +1,6 @@
 <%= render "kind_tabs" %>
 
+<% if false %>
 <div data-controller="filter">
   <%= link_to "Filtriraj", "#", class: "button is-block mb-4 is-hidden-tablet", data: { action: "filter#show", "filter-target": "show_button" } %>
   <div data-filter-target="container" class="mb-5 is-block-tablet">
@@ -31,6 +32,7 @@
     <% end %>
   </div>
 </div>
+<% end %>
 
 <% if filtered? %>
   <div class="tags mb-6">

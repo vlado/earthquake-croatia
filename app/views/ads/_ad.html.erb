@@ -27,7 +27,7 @@
                 </span>
                 Kopiraj poveznicu
               </a>
-              <% if ad.editable? %>
+              <% if false %>
                 <hr class="dropdown-divider">
                 <a class="dropdown-item is-flex is-align-items-center" href="<%= new_ad_token_path(ad, a: "edit") %>" >
                   <span class="icon is-small mr-2">
@@ -85,7 +85,7 @@
         <span class="icon mr-2">
           <%= inline_svg_tag('phone.svg', aria: true) %>
         </span>
-        <strong><%= tel_to ad.phone %></strong>
+        <strong><%= tel_to ad.phone.first(5) %>...</strong>
       </div>
     </footer>
   </div>

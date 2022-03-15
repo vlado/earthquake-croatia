@@ -4,7 +4,7 @@
 // that code so it'll be compiled.
 
 import Rails from "@rails/ujs";
-import Turbolinks from "turbolinks";
+// import Turbolinks from "turbolinks";
 import $ from "jquery";
 import "select2";
 import "select2/dist/css/select2.css";
@@ -14,12 +14,12 @@ import langhr from "select2/src/js/select2/i18n/hr";
 // import "channels"
 
 Rails.start();
-Turbolinks.start();
+// Turbolinks.start();
 // ActiveStorage.start()
 
 import "controllers";
 
-document.addEventListener("turbolinks:load", function() {
+document.addEventListener("DOMContentLoaded", function() {
   $.fn.select2.defaults.set("language", langhr);
 
   $(".select2-container").remove(); //remove the select2 container DOM
